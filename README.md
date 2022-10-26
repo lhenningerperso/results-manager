@@ -1,1 +1,1 @@
-"# Results manager" 
+# Results manager
