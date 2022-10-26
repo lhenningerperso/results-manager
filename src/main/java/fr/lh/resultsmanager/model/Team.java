@@ -1,0 +1,41 @@
+package fr.lh.resultsmanager.model;
+
+import lombok.Getter;
+import lombok.Setter;
+
+import javax.persistence.*;
+
+import static javax.persistence.GenerationType.SEQUENCE;
+
+@Entity
+@Table(name = "TEAM")
+public class Team {
+
+    @Id
+    @SequenceGenerator(name = "team_seq",
+            sequenceName = "team_sequence",
+            initialValue = 5, allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "team_seq")
+    @Getter @Setter
+    @Column(name="TEAMID")
+    private Long teamId;
+    @Getter @Setter
+    @Column(name="TEAMLABEL")
+    private String teamLabel;
+    @Getter @Setter
+    @Column(name="TEAMCITY")
+    private String teamCity;
+    @Getter @Setter
+    @Column(name="DIVISION")
+    private int division;
+
+    public Team() {
+    }
+
+    public Team(Long teamId, String teamLabel, String teamCity, int division) {
+        this.teamId = teamId;
+        this.teamLabel = teamLabel;
+        this.teamCity = teamCity;
+        this.division = division;
+    }
+}
