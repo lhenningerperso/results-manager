@@ -15,6 +15,9 @@ public class TeamService {
     @Autowired
     private TeamRepository teamRepository;
 
+    @Autowired
+    private DivisionService divisionService;
+
     /**
      * Get team by ID. The service will send the team data else will throw the exception.
      * @param teamId
@@ -32,7 +35,8 @@ public class TeamService {
         Team team = new Team();
         team.setTeamLabel(teamDto.getTeamLabel());
         team.setTeamCity(teamDto.getTeamCity());
-        team.setDivision(teamDto.getDivision());
+
+        team.setDivision(divisionService.getDivisionById(teamDto.getDivisionId()));
         return teamRepository.save(team);
     }
 

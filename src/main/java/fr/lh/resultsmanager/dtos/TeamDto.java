@@ -8,6 +8,6 @@ public class TeamDto {
 
     private String teamLabel;
     private String teamCity;
-    private int division;
+    private Long divisionId;
 
 }

@@ -2,7 +2,9 @@ package fr.lh.resultsmanager.service;
 
 import fr.lh.resultsmanager.dtos.DivisionDto;
 import fr.lh.resultsmanager.model.Division;
+import fr.lh.resultsmanager.model.Team;
 import fr.lh.resultsmanager.repository.DivisionRepository;
+import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,6 +26,10 @@ public class DivisionService {
 
     public List<Division> getAllDivisions() {
         return divisionRepository.findAll();
+    }
+
+    public Division getDivisionById(Long divisionId) {
+        return divisionRepository.findById(divisionId).orElseThrow(() -> new EntityNotFoundException("Division not found"));
     }
 
 }

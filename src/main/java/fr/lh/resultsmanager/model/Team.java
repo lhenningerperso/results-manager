@@ -23,13 +23,14 @@ public class Team {
     private String teamLabel;
     @Column(name="TEAMCITY")
     private String teamCity;
-    @Column(name="DIVISION")
-    private int division;
+    @ManyToOne
+    @JoinColumn(name="DIVISION_ID")
+    private Division division;
 
     public Team() {
     }
 
-    public Team(Long teamId, String teamLabel, String teamCity, int division) {
+    public Team(Long teamId, String teamLabel, String teamCity, Division division) {
         this.teamId = teamId;
         this.teamLabel = teamLabel;
         this.teamCity = teamCity;
