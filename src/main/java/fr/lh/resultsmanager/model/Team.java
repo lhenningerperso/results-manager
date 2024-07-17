@@ -1,11 +1,14 @@
 package fr.lh.resultsmanager.model;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Getter;
 import lombok.Setter;
 
 import jakarta.persistence.*;
 
 @Entity
+@Getter
+@Setter
 @Table(name = "TEAM")
 public class Team {
 
@@ -14,16 +17,12 @@ public class Team {
             sequenceName = "team_sequence",
             initialValue = 5, allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "team_seq")
-    @Getter @Setter
     @Column(name="TEAMID")
     private Long teamId;
-    @Getter @Setter
     @Column(name="TEAMLABEL")
     private String teamLabel;
-    @Getter @Setter
     @Column(name="TEAMCITY")
     private String teamCity;
-    @Getter @Setter
     @Column(name="DIVISION")
     private int division;
 

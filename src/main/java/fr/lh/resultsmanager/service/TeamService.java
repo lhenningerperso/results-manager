@@ -1,5 +1,6 @@
 package fr.lh.resultsmanager.service;
 
+import fr.lh.resultsmanager.dtos.TeamDto;
 import fr.lh.resultsmanager.model.Team;
 import fr.lh.resultsmanager.repository.TeamRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,7 +28,11 @@ public class TeamService {
         return teamRepository.findAll();
     }
 
-    public Team putTeam(Team team){
+    public Team createTeam(TeamDto teamDto){
+        Team team = new Team();
+        team.setTeamLabel(teamDto.getTeamLabel());
+        team.setTeamCity(teamDto.getTeamCity());
+        team.setDivision(teamDto.getDivision());
         return teamRepository.save(team);
     }
 
