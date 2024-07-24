@@ -16,7 +16,7 @@ public class TeamService {
     private TeamRepository teamRepository;
 
     @Autowired
-    private DivisionService divisionService;
+    private CompetitionService competitionService;
 
     /**
      * Get team by ID. The service will send the team data else will throw the exception.
@@ -36,7 +36,7 @@ public class TeamService {
         team.setTeamLabel(teamDto.getTeamLabel());
         team.setTeamCity(teamDto.getTeamCity());
 
-        team.setDivision(divisionService.getDivisionById(teamDto.getDivisionId()));
+        team.setCompetition(competitionService.getCompetitionById(teamDto.getDivisionId()));
         return teamRepository.save(team);
     }
 

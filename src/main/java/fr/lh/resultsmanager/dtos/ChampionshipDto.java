@@ -5,9 +5,9 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class DivisionDto {
+public class ChampionshipDto {
 
-    private String divisionLabel;
-    private int divisionLevel;
+    private String label;
+    private int level;
     private String country;
 }

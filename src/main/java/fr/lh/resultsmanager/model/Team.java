@@ -1,6 +1,5 @@
 package fr.lh.resultsmanager.model;
 
-import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -24,16 +23,16 @@ public class Team {
     @Column(name="TEAMCITY")
     private String teamCity;
     @ManyToOne
-    @JoinColumn(name="DIVISION_ID")
-    private Division division;
+    @JoinColumn(name="COMPETITION_ID")
+    private Competition competition;
 
     public Team() {
     }
 
-    public Team(Long teamId, String teamLabel, String teamCity, Division division) {
+    public Team(Long teamId, String teamLabel, String teamCity, Competition competition) {
         this.teamId = teamId;
         this.teamLabel = teamLabel;
         this.teamCity = teamCity;
-        this.division = division;
+        this.competition = competition;
     }
 }
