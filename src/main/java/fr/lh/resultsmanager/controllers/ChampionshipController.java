@@ -1,11 +1,8 @@
 package fr.lh.resultsmanager.controllers;
 
 import fr.lh.resultsmanager.dtos.ChampionshipDto;
-import fr.lh.resultsmanager.dtos.CompetitionDto;
 import fr.lh.resultsmanager.model.Championship;
-import fr.lh.resultsmanager.model.Competition;
 import fr.lh.resultsmanager.service.ChampionshipService;
-import fr.lh.resultsmanager.service.CompetitionService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;

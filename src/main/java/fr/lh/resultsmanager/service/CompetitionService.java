@@ -2,7 +2,6 @@ package fr.lh.resultsmanager.service;
 
 import fr.lh.resultsmanager.dtos.CompetitionDto;
 import fr.lh.resultsmanager.model.Competition;
-import fr.lh.resultsmanager.repository.ChampionshipRepository;
 import fr.lh.resultsmanager.repository.CompetitionRepository;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
