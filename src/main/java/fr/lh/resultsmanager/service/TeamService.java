@@ -36,8 +36,19 @@ public class TeamService {
         team.setTeamLabel(teamDto.getTeamLabel());
         team.setTeamCity(teamDto.getTeamCity());
 
-        team.setCompetition(competitionService.getCompetitionById(teamDto.getDivisionId()));
+        team.setCompetition(competitionService.getCompetitionById(teamDto.getCompetitionId()));
         return teamRepository.save(team);
+    }
+
+    public List<Team> createTeams(List<TeamDto> teamsDto){
+        List<Team> teams = teamsDto.stream().map(teamDto -> {
+            Team team = new Team();
+            team.setTeamLabel(teamDto.getTeamLabel());
+            team.setTeamCity(teamDto.getTeamCity());
+            team.setCompetition(competitionService.getCompetitionById(teamDto.getCompetitionId()));
+            return team;
+        }).toList();
+        return teamRepository.saveAll(teams);
     }
 
 }

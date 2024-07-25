@@ -56,4 +56,14 @@ public class TeamsController {
         return ResponseEntity.status(HttpStatus.OK).body(teamSaved);
     }
 
+    @PostMapping(value = "/teams")
+    @Operation(operationId = "putTeams", summary= "Save a list of teams in database")
+    public ResponseEntity<Object> putTeams(@RequestBody List<TeamDto> teamsDto){
+        try {
+            return ResponseEntity.status(HttpStatus.OK).body(teamService.createTeams(teamsDto));
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
+        }
+    }
+
 }
