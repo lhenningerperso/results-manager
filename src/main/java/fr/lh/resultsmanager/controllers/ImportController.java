@@ -25,6 +25,7 @@ public class ImportController {
             @Parameter(description = "Season", required = true, example = "2024") @RequestParam String season
     ){
         ApiFootballClient apiClient = new ApiFootballClient(new RestTemplateBuilder());
+        // Pour tester le push sur github
         List<MatchApiDto> matches = apiClient.getMatchsByRoundAndLeagueAndSeason(round,idLeague,season);
         return ResponseEntity.ok("Import OK");
     }
