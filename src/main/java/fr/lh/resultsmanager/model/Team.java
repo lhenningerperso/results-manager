@@ -18,6 +18,8 @@ public class Team {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "team_seq")
     @Column(name="TEAMID")
     private Long teamId;
+    @Column(name="EXTERNALID")
+    private Long externalId;
     @Column(name="TEAMLABEL")
     private String teamLabel;
     @Column(name="TEAMCITY")

@@ -17,18 +17,18 @@ public class Competition {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "competition_seq")
     @Column(name="ID")
     private Long id;
-    @Column(name="DATE_EVENT")
-    private String dateEvent;
+    @Column(name="SEASON")
+    private String season;
     @ManyToOne
     @JoinColumn(name="CHAMPIONSHIP_ID")
-    private Championship championship;
+    private League league;
 
     public Competition() {
     }
 
-    public Competition(Long id, String dateEvent, Championship championship) {
+    public Competition(Long id, String season, League league) {
         this.id = id;
-        this.dateEvent = dateEvent;
-        this.championship = championship;
+        this.season = season;
+        this.league = league;
     }
 }

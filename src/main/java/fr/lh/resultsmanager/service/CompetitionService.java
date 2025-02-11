@@ -16,12 +16,12 @@ public class CompetitionService {
     CompetitionRepository competitionRepository;
 
     @Autowired
-    ChampionshipService championshipService;
+    LeaguesService leaguesService;
 
     public Competition createCompetition(CompetitionDto competitionDto){
         Competition competition = new Competition();
-        competition.setDateEvent(competitionDto.getDateEvent());
-        competition.setChampionship(championshipService.getChampionshipById(competitionDto.getChampionshipId()));
+        competition.setSeason(competitionDto.getSeason());
+        competition.setLeague(leaguesService.getLeagueById(competitionDto.getChampionshipId()));
         return competitionRepository.save(competition);
     }
 

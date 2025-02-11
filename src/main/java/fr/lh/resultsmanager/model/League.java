@@ -5,14 +5,14 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-@Table(name = "CHAMPIONSHIP")
-public class Championship {
+@Table(name = "LEAGUES")
+public class League {
 
     @Id
-    @SequenceGenerator(name = "championship_seq",
-            sequenceName = "championship_sequence",
+    @SequenceGenerator(name = "leagues_seq",
+            sequenceName = "leagues_sequence",
             initialValue = 1, allocationSize = 1)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "championship_seq")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "leagues_seq")
     @Getter
     @Setter
     @Column(name="ID")
@@ -26,4 +26,7 @@ public class Championship {
     @Getter @Setter
     @Column(name="COUNTRY")
     private String country;
+    @Getter @Setter
+    @Column(name="LEAGUE_GROUP")
+    private String group;
 }

@@ -1,9 +1,9 @@
 package fr.lh.resultsmanager.repository;
 
-import fr.lh.resultsmanager.model.Championship;
+import fr.lh.resultsmanager.model.League;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface ChampionshipRepository extends JpaRepository<Championship, Long> {
+public interface LeaguesRepository extends JpaRepository<League, Long> {
 }

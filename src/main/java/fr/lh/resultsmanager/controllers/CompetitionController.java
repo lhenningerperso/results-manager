@@ -36,7 +36,7 @@ public class CompetitionController {
     }
 
     @GetMapping(value = "/competitions")
-    @Operation(operationId = "getAllCompetitions", summary= "Get all the divisions")
+    @Operation(operationId = "getAllCompetitions", summary= "Get all the competitions")
     public ResponseEntity<Object> getAllCompetitions(){
         List<Competition> competitions = new ArrayList<>();
         try {

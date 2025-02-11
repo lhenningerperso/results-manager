@@ -7,7 +7,7 @@ import lombok.Setter;
 @Setter
 public class CompetitionDto {
 
-    private String dateEvent;
+    private String season;
     private Long championshipId;
 
 }
