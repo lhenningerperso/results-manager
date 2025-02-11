@@ -16,6 +16,7 @@
 	<description>Private project of sports results manager</description>
 	<properties>
 		<java.version>21</java.version>
+		<jackson.version>2.18.2</jackson.version>
 	</properties>
 	<dependencies>
 		<dependency>
