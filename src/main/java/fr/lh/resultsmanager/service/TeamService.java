@@ -36,7 +36,6 @@ public class TeamService {
         team.setTeamLabel(teamDto.getTeamLabel());
         team.setTeamCity(teamDto.getTeamCity());
 
-        team.setCompetition(competitionService.getCompetitionById(teamDto.getCompetitionId()));
         return teamRepository.save(team);
     }
 
@@ -45,7 +44,6 @@ public class TeamService {
             Team team = new Team();
             team.setTeamLabel(teamDto.getTeamLabel());
             team.setTeamCity(teamDto.getTeamCity());
-            team.setCompetition(competitionService.getCompetitionById(teamDto.getCompetitionId()));
             return team;
         }).toList();
         return teamRepository.saveAll(teams);

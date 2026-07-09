@@ -8,6 +8,5 @@ public class TeamDto {
 
     private String teamLabel;
     private String teamCity;
-    private Long competitionId;
 
 }
