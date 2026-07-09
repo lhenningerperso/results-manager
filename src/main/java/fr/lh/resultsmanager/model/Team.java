@@ -1,6 +1,8 @@
 package fr.lh.resultsmanager.model;
 
+import lombok.AccessLevel;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import jakarta.persistence.*;
@@ -8,6 +10,7 @@ import jakarta.persistence.*;
 @Entity
 @Getter
 @Setter
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Table(name = "TEAM")
 public class Team {
 
@@ -23,13 +26,4 @@ public class Team {
     @Column(name="TEAMCITY")
     private String teamCity;
 
-
-    public Team() {
-    }
-
-    public Team(Long teamId, String teamLabel, String teamCity) {
-        this.teamId = teamId;
-        this.teamLabel = teamLabel;
-        this.teamCity = teamCity;
-    }
 }

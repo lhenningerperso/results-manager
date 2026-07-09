@@ -1,12 +1,15 @@
 package fr.lh.resultsmanager.model;
 
 import jakarta.persistence.*;
+import lombok.AccessLevel;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
 @Getter
 @Setter
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Table(name = "COMPETITION")
 public class Competition {
 
@@ -23,12 +26,4 @@ public class Competition {
     @JoinColumn(name="CHAMPIONSHIP_ID")
     private League league;
 
-    public Competition() {
-    }
-
-    public Competition(Long id, String season, League league) {
-        this.id = id;
-        this.season = season;
-        this.league = league;
-    }
 }
