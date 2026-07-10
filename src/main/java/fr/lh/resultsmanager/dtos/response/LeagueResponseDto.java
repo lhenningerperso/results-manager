@@ -1,11 +1,11 @@
-package fr.lh.resultsmanager.dtos;
+package fr.lh.resultsmanager.dtos.response;
 
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
-public class LeagueDto {
+public class LeagueResponseDto {
 
     private String label;
     private int level;

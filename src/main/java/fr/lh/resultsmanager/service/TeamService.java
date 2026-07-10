@@ -1,6 +1,6 @@
 package fr.lh.resultsmanager.service;
 
-import fr.lh.resultsmanager.dtos.TeamDto;
+import fr.lh.resultsmanager.dtos.request.TeamRequestDto;
 import fr.lh.resultsmanager.model.Team;
 import fr.lh.resultsmanager.repository.TeamRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,19 +31,19 @@ public class TeamService {
         return teamRepository.findAll();
     }
 
-    public Team createTeam(TeamDto teamDto){
+    public Team createTeam(TeamRequestDto teamRequestDto){
         Team team = Team.builder()
-                .teamLabel(teamDto.getTeamLabel())
-                .teamCity(teamDto.getTeamCity())
+                .teamLabel(teamRequestDto.getTeamLabel())
+                .teamCity(teamRequestDto.getTeamCity())
                 .build();
 
         return teamRepository.save(team);
     }
 
-    public List<Team> createTeams(List<TeamDto> teamsDto){
-        List<Team> teams = teamsDto.stream().map(teamDto -> Team.builder()
-                    .teamLabel(teamDto.getTeamLabel())
-                    .teamCity(teamDto.getTeamCity())
+    public List<Team> createTeams(List<TeamRequestDto> teamsDto){
+        List<Team> teams = teamsDto.stream().map(teamRequestDto -> Team.builder()
+                    .teamLabel(teamRequestDto.getTeamLabel())
+                    .teamCity(teamRequestDto.getTeamCity())
                     .build())
                 .toList();
         return teamRepository.saveAll(teams);

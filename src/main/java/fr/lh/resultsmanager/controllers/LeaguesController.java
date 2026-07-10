@@ -1,6 +1,6 @@
 package fr.lh.resultsmanager.controllers;
 
-import fr.lh.resultsmanager.dtos.LeagueDto;
+import fr.lh.resultsmanager.dtos.request.LeagueRequestDto;
 import fr.lh.resultsmanager.model.League;
 import fr.lh.resultsmanager.service.LeaguesService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -25,10 +25,10 @@ public class LeaguesController {
 
     @PostMapping(value = "/league")
     @Operation(operationId = "putLeague", summary= "Save a new league in database")
-    public ResponseEntity<Object> putLeague(@RequestBody LeagueDto leagueDto){
+    public ResponseEntity<Object> putLeague(@RequestBody LeagueRequestDto leagueRequestDto){
         League leagueSaved = new League();
         try {
-            leagueSaved = leaguesService.createLeague(leagueDto);
+            leagueSaved = leaguesService.createLeague(leagueRequestDto);
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
         }

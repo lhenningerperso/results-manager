@@ -1,10 +1,10 @@
-package fr.lh.resultsmanager.dtos;
+package fr.lh.resultsmanager.dtos.request;
 
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter @Setter
-public class TeamDto {
+public class TeamRequestDto {
 
     private String teamLabel;
     private String teamCity;

@@ -1,11 +1,11 @@
-package fr.lh.resultsmanager.dtos;
+package fr.lh.resultsmanager.dtos.response;
 
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
-public class MatchDayDto {
+public class MatchDayResponseDto {
 
     private Long competitionId;
     private String number;

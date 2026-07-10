@@ -1,11 +1,11 @@
-package fr.lh.resultsmanager.dtos;
+package fr.lh.resultsmanager.dtos.request;
 
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
-public class CompetitionDto {
+public class CompetitionRequestDto {
 
     private String season;
     private Long championshipId;

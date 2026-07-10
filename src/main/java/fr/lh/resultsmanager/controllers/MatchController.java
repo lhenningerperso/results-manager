@@ -1,6 +1,6 @@
 package fr.lh.resultsmanager.controllers;
 
-import fr.lh.resultsmanager.dtos.MatchDto;
+import fr.lh.resultsmanager.dtos.request.MatchRequestDto;
 import fr.lh.resultsmanager.model.Match;
 import fr.lh.resultsmanager.service.MatchService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -24,10 +24,10 @@ public class MatchController {
 
     @PostMapping(value = "/game")
     @Operation(operationId = "putGame", summary= "Save a new game in database")
-    public ResponseEntity<Object> putGame(@RequestBody MatchDto matchDto){
+    public ResponseEntity<Object> putGame(@RequestBody MatchRequestDto matchRequestDto){
         Match matchSaved;
         try {
-            matchSaved = matchService.createMatch(matchDto);
+            matchSaved = matchService.createMatch(matchRequestDto);
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
         }
@@ -36,7 +36,7 @@ public class MatchController {
 
     @PostMapping(value = "/games")
     @Operation(operationId = "putGames", summary= "Save a list of games in database")
-    public ResponseEntity<Object> putGames(@RequestBody List<MatchDto> gamesDto){
+    public ResponseEntity<Object> putGames(@RequestBody List<MatchRequestDto> gamesDto){
         try {
             return ResponseEntity.status(HttpStatus.OK).body(matchService.createMatchs(gamesDto));
         } catch (Exception e) {

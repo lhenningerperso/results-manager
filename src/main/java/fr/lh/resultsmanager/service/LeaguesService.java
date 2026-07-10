@@ -1,6 +1,6 @@
 package fr.lh.resultsmanager.service;
 
-import fr.lh.resultsmanager.dtos.LeagueDto;
+import fr.lh.resultsmanager.dtos.request.LeagueRequestDto;
 import fr.lh.resultsmanager.model.League;
 import fr.lh.resultsmanager.repository.LeaguesRepository;
 import jakarta.persistence.EntityNotFoundException;
@@ -15,12 +15,12 @@ public class LeaguesService {
     @Autowired
     LeaguesRepository leaguesRepository;
 
-    public League createLeague(LeagueDto leagueDto){
+    public League createLeague(LeagueRequestDto leagueRequestDto){
         League league = new League();
-        league.setLabel(leagueDto.getLabel());
-        league.setLevel(leagueDto.getLevel());
-        league.setCountry(leagueDto.getCountry());
-        league.setGroup(leagueDto.getGroup());
+        league.setLabel(leagueRequestDto.getLabel());
+        league.setLevel(leagueRequestDto.getLevel());
+        league.setCountry(leagueRequestDto.getCountry());
+        league.setGroup(leagueRequestDto.getGroup());
         return leaguesRepository.save(league);
     }
 

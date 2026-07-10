@@ -1,6 +1,6 @@
 package fr.lh.resultsmanager.service;
 
-import fr.lh.resultsmanager.dtos.CompetitionDto;
+import fr.lh.resultsmanager.dtos.request.CompetitionRequestDto;
 import fr.lh.resultsmanager.model.Competition;
 import fr.lh.resultsmanager.repository.CompetitionRepository;
 import jakarta.persistence.EntityNotFoundException;
@@ -18,10 +18,10 @@ public class CompetitionService {
     @Autowired
     LeaguesService leaguesService;
 
-    public Competition createCompetition(CompetitionDto competitionDto){
+    public Competition createCompetition(CompetitionRequestDto competitionRequestDto){
         Competition competition = Competition.builder()
-                .season(competitionDto.getSeason())
-                .league(leaguesService.getLeagueById(competitionDto.getChampionshipId()))
+                .season(competitionRequestDto.getSeason())
+                .league(leaguesService.getLeagueById(competitionRequestDto.getChampionshipId()))
                 .build();
         return competitionRepository.save(competition);
     }

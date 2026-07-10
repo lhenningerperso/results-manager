@@ -2,7 +2,7 @@ package fr.lh.resultsmanager.controllers;
 
 import fr.lh.resultsmanager.model.Team;
 import fr.lh.resultsmanager.service.TeamService;
-import fr.lh.resultsmanager.dtos.TeamDto;
+import fr.lh.resultsmanager.dtos.request.TeamRequestDto;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,10 +46,10 @@ public class TeamsController {
 
     @PostMapping(value = "/team")
     @Operation(operationId = "putTeam", summary= "Save a new team in database")
-    public ResponseEntity<Object> putTeam(@RequestBody TeamDto teamDto){
+    public ResponseEntity<Object> putTeam(@RequestBody TeamRequestDto teamRequestDto){
         Team teamSaved;
         try {
-            teamSaved = teamService.createTeam(teamDto);
+            teamSaved = teamService.createTeam(teamRequestDto);
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
         }
@@ -58,7 +58,7 @@ public class TeamsController {
 
     @PostMapping(value = "/teams")
     @Operation(operationId = "putTeams", summary= "Save a list of teams in database")
-    public ResponseEntity<Object> putTeams(@RequestBody List<TeamDto> teamsDto){
+    public ResponseEntity<Object> putTeams(@RequestBody List<TeamRequestDto> teamsDto){
         try {
             return ResponseEntity.status(HttpStatus.OK).body(teamService.createTeams(teamsDto));
         } catch (Exception e) {

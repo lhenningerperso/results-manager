@@ -1,8 +1,7 @@
 package fr.lh.resultsmanager.service;
 
-import fr.lh.resultsmanager.dtos.MatchDto;
+import fr.lh.resultsmanager.dtos.request.MatchRequestDto;
 import fr.lh.resultsmanager.model.Match;
-import fr.lh.resultsmanager.model.MatchDay;
 import fr.lh.resultsmanager.repository.MatchRepository;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,27 +19,27 @@ public class MatchService {
     @Autowired
     MatchDayService matchDayService;
 
-    public Match createMatch(MatchDto matchDto){
+    public Match createMatch(MatchRequestDto matchRequestDto){
         Match match = Match.builder()
-                .matchDay(matchDayService.getMatchDayById(matchDto.getMatchdayId()))
-                .homeTeam(teamService.getTeamById(matchDto.getHomeTeamId()))
-                .awayTeam(teamService.getTeamById(matchDto.getAwayTeamId()))
-                .homeScore(matchDto.getHomeScore())
-                .awayScore(matchDto.getAwayScore())
-                .status(matchDto.getStatus())
+                .matchDay(matchDayService.getMatchDayById(matchRequestDto.getMatchdayId()))
+                .homeTeam(teamService.getTeamById(matchRequestDto.getHomeTeamId()))
+                .awayTeam(teamService.getTeamById(matchRequestDto.getAwayTeamId()))
+                .homeScore(matchRequestDto.getHomeScore())
+                .awayScore(matchRequestDto.getAwayScore())
+                .status(matchRequestDto.getStatus())
                 .build();
         return matchRepository.save(match);
     }
 
-    public List<Match> createMatchs(List<MatchDto> matchDtos){
-        List<Match> matches = matchDtos.stream()
-                .map(matchDto -> Match.builder()
-                    .matchDay(matchDayService.getMatchDayById(matchDto.getMatchdayId()))
-                    .homeTeam(teamService.getTeamById(matchDto.getHomeTeamId()))
-                    .awayTeam(teamService.getTeamById(matchDto.getAwayTeamId()))
-                    .homeScore(matchDto.getHomeScore())
-                    .awayScore(matchDto.getAwayScore())
-                    .status(matchDto.getStatus())
+    public List<Match> createMatchs(List<MatchRequestDto> matchRequestDtos){
+        List<Match> matches = matchRequestDtos.stream()
+                .map(matchRequestDto -> Match.builder()
+                    .matchDay(matchDayService.getMatchDayById(matchRequestDto.getMatchdayId()))
+                    .homeTeam(teamService.getTeamById(matchRequestDto.getHomeTeamId()))
+                    .awayTeam(teamService.getTeamById(matchRequestDto.getAwayTeamId()))
+                    .homeScore(matchRequestDto.getHomeScore())
+                    .awayScore(matchRequestDto.getAwayScore())
+                    .status(matchRequestDto.getStatus())
                     .build())
                 .toList();
         return matchRepository.saveAll(matches);

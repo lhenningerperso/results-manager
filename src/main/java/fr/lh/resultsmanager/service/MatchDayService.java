@@ -1,6 +1,6 @@
 package fr.lh.resultsmanager.service;
 
-import fr.lh.resultsmanager.dtos.MatchDayDto;
+import fr.lh.resultsmanager.dtos.request.MatchDayRequestDto;
 import fr.lh.resultsmanager.model.MatchDay;
 import fr.lh.resultsmanager.repository.MatchDayRepository;
 import jakarta.persistence.EntityNotFoundException;
@@ -18,19 +18,19 @@ public class MatchDayService {
     @Autowired
     CompetitionService competitionService;
 
-    public MatchDay createMatchDay(MatchDayDto matchDayDto){
+    public MatchDay createMatchDay(MatchDayRequestDto matchDayRequestDto){
         MatchDay matchDay = MatchDay.builder()
-                .competition(competitionService.getCompetitionById(matchDayDto.getCompetitionId()))
-                .number(matchDayDto.getNumber())
+                .competition(competitionService.getCompetitionById(matchDayRequestDto.getCompetitionId()))
+                .number(matchDayRequestDto.getNumber())
                 .build();
         return matchDayRepository.save(matchDay);
     }
 
-    public List<MatchDay> createMatchs(List<MatchDayDto> matchDayDtos){
-        List<MatchDay> matchDays = matchDayDtos.stream()
-                .map(matchDayDto -> MatchDay.builder()
-                        .competition(competitionService.getCompetitionById(matchDayDto.getCompetitionId()))
-                        .number(matchDayDto.getNumber())
+    public List<MatchDay> createMatchs(List<MatchDayRequestDto> matchDayRequestDtos){
+        List<MatchDay> matchDays = matchDayRequestDtos.stream()
+                .map(matchDayRequestDto -> MatchDay.builder()
+                        .competition(competitionService.getCompetitionById(matchDayRequestDto.getCompetitionId()))
+                        .number(matchDayRequestDto.getNumber())
                         .build())
                 .toList();
         return matchDayRepository.saveAll(matchDays);

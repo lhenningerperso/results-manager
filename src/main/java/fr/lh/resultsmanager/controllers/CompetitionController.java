@@ -1,6 +1,6 @@
 package fr.lh.resultsmanager.controllers;
 
-import fr.lh.resultsmanager.dtos.CompetitionDto;
+import fr.lh.resultsmanager.dtos.request.CompetitionRequestDto;
 import fr.lh.resultsmanager.model.Competition;
 import fr.lh.resultsmanager.service.CompetitionService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -25,10 +25,10 @@ public class CompetitionController {
 
     @PostMapping(value = "/competition")
     @Operation(operationId = "putCompetition", summary= "Save a new competition in database")
-    public ResponseEntity<Object> putDivision(@RequestBody CompetitionDto competitionDto){
+    public ResponseEntity<Object> putDivision(@RequestBody CompetitionRequestDto competitionRequestDto){
         Competition competitionSaved;
         try {
-            competitionSaved = competitionService.createCompetition(competitionDto);
+            competitionSaved = competitionService.createCompetition(competitionRequestDto);
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
         }
