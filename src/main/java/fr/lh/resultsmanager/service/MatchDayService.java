@@ -1,8 +1,6 @@
 package fr.lh.resultsmanager.service;
 
 import fr.lh.resultsmanager.dtos.MatchDayDto;
-import fr.lh.resultsmanager.dtos.MatchDto;
-import fr.lh.resultsmanager.model.Match;
 import fr.lh.resultsmanager.model.MatchDay;
 import fr.lh.resultsmanager.repository.MatchDayRepository;
 import jakarta.persistence.EntityNotFoundException;
@@ -17,30 +15,25 @@ public class MatchDayService {
     @Autowired
     MatchDayRepository matchDayRepository;
 
-    public Match createMatchDay(MatchDayDto matchDayDto){
-        Match match = Match.builder()
-                .matchDay(matchDayService.getMatchDayById(matchDto.getMatchdayId()))
-                .homeTeam(teamService.getTeamById(matchDto.getHomeTeamId()))
-                .awayTeam(teamService.getTeamById(matchDto.getAwayTeamId()))
-                .homeScore(matchDto.getHomeScore())
-                .awayScore(matchDto.getAwayScore())
-                .status(matchDto.getStatus())
+    @Autowired
+    CompetitionService competitionService;
+
+    public MatchDay createMatchDay(MatchDayDto matchDayDto){
+        MatchDay matchDay = MatchDay.builder()
+                .competition(competitionService.getCompetitionById(matchDayDto.getCompetitionId()))
+                .number(matchDayDto.getNumber())
                 .build();
-        return matchRepository.save(match);
+        return matchDayRepository.save(matchDay);
     }
 
-    public List<Match> createMatchs(List<MatchDto> matchDtos){
-        List<Match> matches = matchDtos.stream()
-                .map(matchDto -> Match.builder()
-                        .matchDay(matchDayService.getMatchDayById(matchDto.getMatchdayId()))
-                        .homeTeam(teamService.getTeamById(matchDto.getHomeTeamId()))
-                        .awayTeam(teamService.getTeamById(matchDto.getAwayTeamId()))
-                        .homeScore(matchDto.getHomeScore())
-                        .awayScore(matchDto.getAwayScore())
-                        .status(matchDto.getStatus())
+    public List<MatchDay> createMatchs(List<MatchDayDto> matchDayDtos){
+        List<MatchDay> matchDays = matchDayDtos.stream()
+                .map(matchDayDto -> MatchDay.builder()
+                        .competition(competitionService.getCompetitionById(matchDayDto.getCompetitionId()))
+                        .number(matchDayDto.getNumber())
                         .build())
                 .toList();
-        return matchRepository.saveAll(matches);
+        return matchDayRepository.saveAll(matchDays);
     }
 
     public MatchDay getMatchDayById(Long matchDayId) {

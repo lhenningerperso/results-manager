@@ -23,7 +23,7 @@ public class TeamsController {
     @GetMapping(value = "/team/{id}")
     @Operation(operationId = "findTeamById", summary= "Get a team by its teamId")
     public ResponseEntity<Object> findTeamById(@PathVariable(value ="id") Long id){
-        Team team = new Team();
+        Team team;
         try {
             team = teamService.getTeamById(id);
         } catch (Exception e) {

@@ -19,9 +19,10 @@ public class CompetitionService {
     LeaguesService leaguesService;
 
     public Competition createCompetition(CompetitionDto competitionDto){
-        Competition competition = new Competition();
-        competition.setSeason(competitionDto.getSeason());
-        competition.setLeague(leaguesService.getLeagueById(competitionDto.getChampionshipId()));
+        Competition competition = Competition.builder()
+                .season(competitionDto.getSeason())
+                .league(leaguesService.getLeagueById(competitionDto.getChampionshipId()))
+                .build();
         return competitionRepository.save(competition);
     }
 

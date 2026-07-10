@@ -32,20 +32,20 @@ public class TeamService {
     }
 
     public Team createTeam(TeamDto teamDto){
-        Team team = new Team();
-        team.setTeamLabel(teamDto.getTeamLabel());
-        team.setTeamCity(teamDto.getTeamCity());
+        Team team = Team.builder()
+                .teamLabel(teamDto.getTeamLabel())
+                .teamCity(teamDto.getTeamCity())
+                .build();
 
         return teamRepository.save(team);
     }
 
     public List<Team> createTeams(List<TeamDto> teamsDto){
-        List<Team> teams = teamsDto.stream().map(teamDto -> {
-            Team team = new Team();
-            team.setTeamLabel(teamDto.getTeamLabel());
-            team.setTeamCity(teamDto.getTeamCity());
-            return team;
-        }).toList();
+        List<Team> teams = teamsDto.stream().map(teamDto -> Team.builder()
+                    .teamLabel(teamDto.getTeamLabel())
+                    .teamCity(teamDto.getTeamCity())
+                    .build())
+                .toList();
         return teamRepository.saveAll(teams);
     }
 

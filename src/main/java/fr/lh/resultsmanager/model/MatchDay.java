@@ -10,6 +10,7 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 import lombok.AccessLevel;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -35,5 +36,11 @@ public class MatchDay {
     private Competition competition;
     @Column(name="NUMBER")
     private String number;
+
+    @Builder
+    private MatchDay(Competition competition, String number){
+        this.competition=competition;
+        this.number=number;
+    }
 
 }

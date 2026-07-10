@@ -2,6 +2,7 @@ package fr.lh.resultsmanager.model;
 
 import jakarta.persistence.*;
 import lombok.AccessLevel;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -25,5 +26,11 @@ public class Competition {
     @ManyToOne
     @JoinColumn(name="CHAMPIONSHIP_ID")
     private League league;
+
+    @Builder
+    private Competition(String season, League league){
+        this.season=season;
+        this.league=league;
+    }
 
 }
