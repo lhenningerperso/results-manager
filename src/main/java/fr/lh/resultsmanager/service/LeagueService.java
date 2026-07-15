@@ -1,16 +1,17 @@
 package fr.lh.resultsmanager.service;
 
 import fr.lh.resultsmanager.dtos.request.LeagueRequestDto;
+import fr.lh.resultsmanager.dtos.response.LeagueResponseDto;
+import fr.lh.resultsmanager.exception.LeagueNotFoundException;
 import fr.lh.resultsmanager.model.League;
 import fr.lh.resultsmanager.repository.LeaguesRepository;
-import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class LeaguesService {
+public class LeagueService {
 
     @Autowired
     LeaguesRepository leaguesRepository;
@@ -29,7 +30,7 @@ public class LeaguesService {
     }
 
     public League getLeagueById(Long leagueId) {
-        return leaguesRepository.findById(leagueId).orElseThrow(() -> new EntityNotFoundException("League not found"));
+        return leaguesRepository.findById(leagueId).orElseThrow(() -> new LeagueNotFoundException(leagueId));
     }
 
 }

@@ -16,12 +16,12 @@ public class CompetitionService {
     CompetitionRepository competitionRepository;
 
     @Autowired
-    LeaguesService leaguesService;
+    LeagueService leagueService;
 
     public Competition createCompetition(CompetitionRequestDto competitionRequestDto){
         Competition competition = Competition.builder()
                 .season(competitionRequestDto.getSeason())
-                .league(leaguesService.getLeagueById(competitionRequestDto.getChampionshipId()))
+                .league(leagueService.getLeagueById(competitionRequestDto.getChampionshipId()))
                 .build();
         return competitionRepository.save(competition);
     }

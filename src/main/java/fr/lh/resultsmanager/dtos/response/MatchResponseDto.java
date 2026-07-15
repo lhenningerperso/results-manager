@@ -8,6 +8,7 @@ import lombok.Setter;
 @Setter
 public class MatchResponseDto {
 
+    private Long id;
     private Long matchdayId;
     private Long homeTeamId;
     private Long awayTeamId;

@@ -24,7 +24,7 @@ public class CompetitionController {
     CompetitionService competitionService;
 
     @PostMapping(value = "/competition")
-    @Operation(operationId = "putCompetition", summary= "Save a new competition in database")
+    @Operation(operationId = "postCompetition", summary= "Save a new competition in database")
     public ResponseEntity<Object> putDivision(@RequestBody CompetitionRequestDto competitionRequestDto){
         Competition competitionSaved;
         try {

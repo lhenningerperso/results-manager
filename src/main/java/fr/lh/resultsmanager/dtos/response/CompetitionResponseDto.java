@@ -7,6 +7,7 @@ import lombok.Setter;
 @Setter
 public class CompetitionResponseDto {
 
+    private Long id;
     private String season;
     private Long championshipId;
 

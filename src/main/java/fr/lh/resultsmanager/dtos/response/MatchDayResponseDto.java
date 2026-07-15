@@ -7,6 +7,7 @@ import lombok.Setter;
 @Setter
 public class MatchDayResponseDto {
 
+    private Long id;
     private Long competitionId;
     private String number;
 }
