@@ -17,9 +17,9 @@ import java.util.List;
 @Tag(name = "Import", description = "Endpoints to import data")
 public class ImportController {
 
-    @GetMapping(value="/matches")
-    @Operation(operationId = "matches", summary = "TODO : summary", description ="TODO : description ")
-    public ResponseEntity<String> matchesImport(
+    @GetMapping(value="/matchs")
+    @Operation(operationId = "matchs", summary = "TODO : summary", description ="TODO : description ")
+    public ResponseEntity<String> matchsImport(
             @Parameter(description = "League id", required = true, example = "62") @RequestParam int idLeague,
             @Parameter(description = "Round", required = true, example = "Regular Season - 1") @RequestParam String round,
             @Parameter(description = "Season", required = true, example = "2024") @RequestParam String season
