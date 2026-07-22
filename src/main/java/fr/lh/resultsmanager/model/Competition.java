@@ -24,7 +24,7 @@ public class Competition {
     @Column(name="SEASON")
     private String season;
     @ManyToOne
-    @JoinColumn(name="CHAMPIONSHIP_ID")
+    @JoinColumn(name="LEAGUE_ID")
     private League league;
 
     @Builder

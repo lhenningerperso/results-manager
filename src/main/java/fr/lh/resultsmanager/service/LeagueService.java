@@ -1,8 +1,7 @@
 package fr.lh.resultsmanager.service;
 
 import fr.lh.resultsmanager.dtos.request.LeagueRequestDto;
-import fr.lh.resultsmanager.dtos.response.LeagueResponseDto;
-import fr.lh.resultsmanager.exception.LeagueNotFoundException;
+import fr.lh.resultsmanager.exception.ResourceNotFoundException;
 import fr.lh.resultsmanager.model.League;
 import fr.lh.resultsmanager.repository.LeaguesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,7 +29,7 @@ public class LeagueService {
     }
 
     public League getLeagueById(Long leagueId) {
-        return leaguesRepository.findById(leagueId).orElseThrow(() -> new LeagueNotFoundException(leagueId));
+        return leaguesRepository.findById(leagueId).orElseThrow(() -> new ResourceNotFoundException("League", leagueId));
     }
 
 }

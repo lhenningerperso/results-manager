@@ -1,9 +1,9 @@
 package fr.lh.resultsmanager.service;
 
 import fr.lh.resultsmanager.dtos.request.CompetitionRequestDto;
+import fr.lh.resultsmanager.exception.ResourceNotFoundException;
 import fr.lh.resultsmanager.model.Competition;
 import fr.lh.resultsmanager.repository.CompetitionRepository;
-import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,7 +21,7 @@ public class CompetitionService {
     public Competition createCompetition(CompetitionRequestDto competitionRequestDto){
         Competition competition = Competition.builder()
                 .season(competitionRequestDto.getSeason())
-                .league(leagueService.getLeagueById(competitionRequestDto.getChampionshipId()))
+                .league(leagueService.getLeagueById(competitionRequestDto.getLeagueId()))
                 .build();
         return competitionRepository.save(competition);
     }
@@ -31,7 +31,7 @@ public class CompetitionService {
     }
 
     public Competition getCompetitionById(Long competitionId) {
-        return competitionRepository.findById(competitionId).orElseThrow(() -> new EntityNotFoundException("Division not found"));
+        return competitionRepository.findById(competitionId).orElseThrow(() -> new ResourceNotFoundException("Competition", competitionId));
     }
 
 }
