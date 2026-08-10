@@ -11,7 +11,7 @@ public class MatchRequestDto {
     private Long matchdayId;
     private Long homeTeamId;
     private Long awayTeamId;
-    private int homeScore;
-    private int awayScore;
+    private Integer homeScore;
+    private Integer awayScore;
     private Status status;
 }

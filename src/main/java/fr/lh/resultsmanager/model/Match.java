@@ -30,19 +30,19 @@ public class Match {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "match_seq")
     @Column(name="ID")
     private Long id;
-    @ManyToOne
-    @JoinColumn(name="MATCHDAY_ID")
+    @ManyToOne(optional = false)
+    @JoinColumn(name="MATCHDAY_ID", nullable = false)
     private MatchDay matchDay;
-    @ManyToOne
-    @JoinColumn(name="HOME_TEAM_ID")
+    @ManyToOne(optional = false)
+    @JoinColumn(name="HOME_TEAM_ID", nullable = false)
     private Team homeTeam;
-    @ManyToOne
-    @JoinColumn(name="AWAY_TEAM_ID")
+    @ManyToOne(optional = false)
+    @JoinColumn(name="AWAY_TEAM_ID", nullable = false)
     private Team awayTeam;
     @Column(name="HOME_SCORE")
-    private int homeScore;
+    private Integer homeScore;
     @Column(name="AWAY_SCORE")
-    private int awayScore;
+    private Integer awayScore;
     @Column(name="STATUS")
     private Status status;
 

@@ -11,6 +11,6 @@ public class CompetitionResponseDto {
 
     private Long id;
     private String season;
-    private Long leagueId;
+    private LeagueSummaryDto league;
 
 }

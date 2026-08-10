@@ -13,7 +13,7 @@ public class MatchDayMapper {
     public MatchDayResponseDto toDto(MatchDay md) {
         return MatchDayResponseDto.builder()
                 .id(md.getId())
-                .competition(new CompetitionSummaryDto(md.getCompetition().getId(),md.getCompetition().getLeague().getLabel(),md.getCompetition().getSeason()))
+                .competition(toCompetitionSummaryDto(md))
                 .number(md.getNumber())
                 .build();
     }
@@ -22,6 +22,14 @@ public class MatchDayMapper {
         return mds.stream()
                 .map(this::toDto)
                 .toList();
+    }
+
+    private CompetitionSummaryDto toCompetitionSummaryDto(MatchDay md){
+        return new CompetitionSummaryDto(
+                md.getCompetition().getId(),
+                md.getCompetition().getLeague().getLabel(),
+                md.getCompetition().getSeason()
+        );
     }
 
 }

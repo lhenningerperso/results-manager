@@ -1,6 +1,7 @@
 package fr.lh.resultsmanager.mapper;
 
 import fr.lh.resultsmanager.dtos.response.CompetitionResponseDto;
+import fr.lh.resultsmanager.dtos.response.LeagueSummaryDto;
 import fr.lh.resultsmanager.model.Competition;
 import org.springframework.stereotype.Component;
 
@@ -13,7 +14,7 @@ public class CompetitionMapper {
         return CompetitionResponseDto.builder()
                 .id(comp.getId())
                 .season(comp.getSeason())
-                .leagueId(comp.getLeague().getId())
+                .league(toLeagueSummary(comp))
                 .build();
     }
 
@@ -21,5 +22,12 @@ public class CompetitionMapper {
         return comps.stream()
                 .map(this::toDto)
                 .toList();
+    }
+
+    private LeagueSummaryDto toLeagueSummary(Competition comp){
+        return new LeagueSummaryDto(
+                comp.getLeague().getId(),
+                comp.getLeague().getLabel()
+        );
     }
 }

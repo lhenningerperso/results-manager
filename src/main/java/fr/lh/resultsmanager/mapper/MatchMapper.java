@@ -5,6 +5,8 @@ import fr.lh.resultsmanager.dtos.response.MatchResponseDto;
 import fr.lh.resultsmanager.dtos.response.ScoreDto;
 import fr.lh.resultsmanager.dtos.response.TeamSummaryDto;
 import fr.lh.resultsmanager.model.Match;
+import fr.lh.resultsmanager.model.MatchDay;
+import fr.lh.resultsmanager.model.Team;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -15,10 +17,10 @@ public class MatchMapper {
     public MatchResponseDto toDto(Match match) {
         return MatchResponseDto.builder()
                 .id(match.getId())
-                .matchday(new MatchDaySummaryDto(match.getMatchDay().getId(),match.getMatchDay().getNumber()))
-                .homeTeam(new TeamSummaryDto(match.getHomeTeam().getId(),match.getHomeTeam().getName(), match.getHomeTeam().getShortName()))
-                .awayTeam(new TeamSummaryDto(match.getAwayTeam().getId(),match.getAwayTeam().getName(),match.getAwayTeam().getShortName()))
-                .score(new ScoreDto(match.getHomeScore(), match.getAwayScore()))
+                .matchday(toMatchDaySummary(match.getMatchDay()))
+                .homeTeam(toTeamSummary(match.getHomeTeam()))
+                .awayTeam(toTeamSummary(match.getAwayTeam()))
+                .score(toScore(match))
                 .status(match.getStatus())
                 .build();
     }
@@ -29,4 +31,25 @@ public class MatchMapper {
                 .toList();
     }
 
+    private MatchDaySummaryDto toMatchDaySummary(MatchDay matchDay) {
+        return new MatchDaySummaryDto(
+                matchDay.getId(),
+                matchDay.getNumber()
+        );
+    }
+
+    private TeamSummaryDto toTeamSummary(Team team) {
+        return new TeamSummaryDto(
+                team.getId(),
+                team.getName(),
+                team.getShortName()
+        );
+    }
+
+    private ScoreDto toScore(Match match) {
+        return new ScoreDto(
+                match.getHomeScore(),
+                match.getAwayScore()
+        );
+    }
 }
