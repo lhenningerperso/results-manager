@@ -22,15 +22,18 @@ public class Team {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "team_seq")
     @Column(name="ID")
     private Long id;
-    @Column(name="TEAMLABEL")
-    private String teamLabel;
-    @Column(name="TEAMCITY")
-    private String teamCity;
+    @Column(name="NAME")
+    private String name;
+    @Column(name="SHORTNAME")
+    private String shortName;
+    @Column(name="CITY")
+    private String city;
 
     @Builder
-    private Team(String teamLabel, String teamCity){
-        this.teamLabel=teamLabel;
-        this.teamCity=teamCity;
+    private Team(String name, String city, String shortName){
+        this.name=name;
+        this.city=city;
+        this.shortName=shortName;
     }
 
 }

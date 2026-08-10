@@ -1,5 +1,6 @@
 package fr.lh.resultsmanager.mapper;
 
+import fr.lh.resultsmanager.dtos.response.CompetitionSummaryDto;
 import fr.lh.resultsmanager.dtos.response.MatchDayResponseDto;
 import fr.lh.resultsmanager.model.MatchDay;
 import org.springframework.stereotype.Component;
@@ -12,7 +13,7 @@ public class MatchDayMapper {
     public MatchDayResponseDto toDto(MatchDay md) {
         return MatchDayResponseDto.builder()
                 .id(md.getId())
-                .competitionId(md.getCompetition().getId())
+                .competition(new CompetitionSummaryDto(md.getCompetition().getId(),md.getCompetition().getLeague().getLabel(),md.getCompetition().getSeason()))
                 .number(md.getNumber())
                 .build();
     }

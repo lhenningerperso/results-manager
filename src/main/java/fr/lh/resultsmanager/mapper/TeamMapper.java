@@ -12,8 +12,9 @@ public class TeamMapper {
     public TeamResponseDto toDto(Team team) {
         return TeamResponseDto.builder()
                 .id(team.getId())
-                .teamLabel(team.getTeamLabel())
-                .teamCity(team.getTeamCity())
+                .name(team.getName())
+                .shortName(team.getShortName())
+                .city(team.getCity())
                 .build();
     }
 

@@ -7,8 +7,9 @@ import lombok.Setter;
 @Getter @Setter
 public class TeamRequestDto {
 
-    @NotBlank(message="Team label is required")
-    private String teamLabel;
-    private String teamCity;
+    @NotBlank(message="Team name is required")
+    private String name;
+    private String shortName;
+    private String city;
 
 }

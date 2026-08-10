@@ -11,10 +11,9 @@ import lombok.Setter;
 public class MatchResponseDto {
 
     private Long id;
-    private Long matchdayId;
-    private Long homeTeamId;
-    private Long awayTeamId;
-    private int homeScore;
-    private int awayScore;
+    private MatchDaySummaryDto matchday;
+    private TeamSummaryDto homeTeam;
+    private TeamSummaryDto awayTeam;
+    private ScoreDto score;
     private Status status;
 }

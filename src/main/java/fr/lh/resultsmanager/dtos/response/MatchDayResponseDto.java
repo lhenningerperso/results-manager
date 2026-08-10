@@ -10,6 +10,6 @@ import lombok.Setter;
 public class MatchDayResponseDto {
 
     private Long id;
-    private Long competitionId;
+    private CompetitionSummaryDto competition;
     private String number;
 }

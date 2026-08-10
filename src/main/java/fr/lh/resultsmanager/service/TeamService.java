@@ -42,8 +42,9 @@ public class TeamService {
 
     private Team buildTeam(TeamRequestDto dto){
         return Team.builder()
-                .teamLabel(dto.getTeamLabel())
-                .teamCity(dto.getTeamCity())
+                .name(dto.getName())
+                .shortName(dto.getShortName())
+                .city(dto.getCity())
                 .build();
     }
 

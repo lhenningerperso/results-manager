@@ -9,7 +9,8 @@ import lombok.Setter;
 public class TeamResponseDto {
 
     private Long id;
-    private String teamLabel;
-    private String teamCity;
+    private String name;
+    private String shortName;
+    private String city;
 
 }
