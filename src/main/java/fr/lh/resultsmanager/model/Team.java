@@ -20,8 +20,8 @@ public class Team {
             sequenceName = "team_sequence",
             initialValue = 5, allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "team_seq")
-    @Column(name="TEAMID")
-    private Long teamId;
+    @Column(name="ID")
+    private Long id;
     @Column(name="TEAMLABEL")
     private String teamLabel;
     @Column(name="TEAMCITY")

@@ -1,8 +1,10 @@
 package fr.lh.resultsmanager.service;
 
 import fr.lh.resultsmanager.dtos.request.TeamRequestDto;
+import fr.lh.resultsmanager.exception.ResourceNotFoundException;
 import fr.lh.resultsmanager.model.Team;
 import fr.lh.resultsmanager.repository.TeamRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,13 +12,20 @@ import jakarta.persistence.EntityNotFoundException;
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class TeamService {
 
-    @Autowired
-    private TeamRepository teamRepository;
+    private final TeamRepository teamRepository;
 
-    @Autowired
-    private CompetitionService competitionService;
+    public Team createTeam(TeamRequestDto dto){
+        return teamRepository.save(buildTeam(dto));
+    }
+
+    public List<Team> createTeams(List<TeamRequestDto> teamsDto){
+        return teamRepository.saveAll(teamsDto.stream()
+                .map(this::buildTeam)
+                .toList());
+    }
 
     /**
      * Get team by ID. The service will send the team data else will throw the exception.
@@ -24,29 +33,18 @@ public class TeamService {
      * @return CustomerData
      */
     public Team getTeamById(Long teamId) {
-        return teamRepository.findById(teamId).orElseThrow(() -> new EntityNotFoundException("Team not found"));
+        return teamRepository.findById(teamId).orElseThrow(() -> new ResourceNotFoundException("Team",teamId));
     }
 
     public List<Team> getAllTeams() {
         return teamRepository.findAll();
     }
 
-    public Team createTeam(TeamRequestDto teamRequestDto){
-        Team team = Team.builder()
-                .teamLabel(teamRequestDto.getTeamLabel())
-                .teamCity(teamRequestDto.getTeamCity())
+    private Team buildTeam(TeamRequestDto dto){
+        return Team.builder()
+                .teamLabel(dto.getTeamLabel())
+                .teamCity(dto.getTeamCity())
                 .build();
-
-        return teamRepository.save(team);
-    }
-
-    public List<Team> createTeams(List<TeamRequestDto> teamsDto){
-        List<Team> teams = teamsDto.stream().map(teamRequestDto -> Team.builder()
-                    .teamLabel(teamRequestDto.getTeamLabel())
-                    .teamCity(teamRequestDto.getTeamCity())
-                    .build())
-                .toList();
-        return teamRepository.saveAll(teams);
     }
 
 }

@@ -1,6 +1,7 @@
 package fr.lh.resultsmanager.service;
 
 import fr.lh.resultsmanager.dtos.request.MatchRequestDto;
+import fr.lh.resultsmanager.dtos.request.MatchUpdateRequestDto;
 import fr.lh.resultsmanager.exception.ResourceNotFoundException;
 import fr.lh.resultsmanager.model.Match;
 import fr.lh.resultsmanager.repository.MatchRepository;
@@ -27,6 +28,14 @@ public class MatchService {
                 matchRequestDtos.stream()
                         .map(this::buildMatch)
                         .toList());
+    }
+
+    public Match updateMatch(Long id, MatchUpdateRequestDto dto) {
+        Match match = getMatchById(id);
+        match.setHomeScore(dto.getHomeScore());
+        match.setAwayScore(dto.getAwayScore());
+        match.setStatus(dto.getStatus());
+        return matchRepository.save(match);
     }
 
     public Match getMatchById(Long matchId) {
