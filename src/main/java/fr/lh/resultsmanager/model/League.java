@@ -17,6 +17,8 @@ public class League {
     @Setter
     @Column(name="ID")
     private Long id;
+    @Column(name = "EXTERNAL_ID")
+    private Long externalId;
     @Getter @Setter
     @Column(name="LABEL")
     private String label;

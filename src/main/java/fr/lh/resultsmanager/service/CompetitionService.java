@@ -31,7 +31,7 @@ public class CompetitionService {
     }
 
     public Competition getCompetitionById(Long competitionId) {
-        return competitionRepository.findById(competitionId).orElseThrow(() -> new ResourceNotFoundException("Competition", competitionId));
+        return competitionRepository.findById(competitionId).orElseThrow(() -> new ResourceNotFoundException("Competition with id " + competitionId + " not found"));
     }
 
 }

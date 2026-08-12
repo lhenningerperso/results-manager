@@ -33,7 +33,7 @@ public class TeamService {
      * @return CustomerData
      */
     public Team getTeamById(Long teamId) {
-        return teamRepository.findById(teamId).orElseThrow(() -> new ResourceNotFoundException("Team",teamId));
+        return teamRepository.findById(teamId).orElseThrow(() -> new ResourceNotFoundException("Team with id " + teamId + " not found"));
     }
 
     public List<Team> getAllTeams() {
@@ -46,6 +46,23 @@ public class TeamService {
                 .shortName(dto.getShortName())
                 .city(dto.getCity())
                 .build();
+    }
+
+    public Team updateTeam(
+            Long id,
+            TeamRequestDto teamRequestDto) {
+
+        Team team = teamRepository.findById(id)
+                .orElseThrow(() ->
+                        new ResourceNotFoundException(
+                                "Team not found with id: " + id
+                        ));
+
+        team.setName(teamRequestDto.getName());
+        team.setShortName(teamRequestDto.getShortName());
+        team.setCity(teamRequestDto.getCity());
+
+        return teamRepository.save(team);
     }
 
 }

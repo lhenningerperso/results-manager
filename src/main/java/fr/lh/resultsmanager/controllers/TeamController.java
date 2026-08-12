@@ -7,6 +7,7 @@ import fr.lh.resultsmanager.service.TeamService;
 import fr.lh.resultsmanager.dtos.request.TeamRequestDto;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -31,10 +32,20 @@ public class TeamController {
         return ResponseEntity.status(HttpStatus.OK).body(teamMapper.toDto(teamService.createTeam(teamRequestDto)));
     }
 
-    @PostMapping(value = "/bulk")
-    @Operation(operationId = "putTeams", summary= "Save a list of teams in database")
-    public ResponseEntity<List<TeamResponseDto>> putTeams(@RequestBody List<TeamRequestDto> teamsDto){
-        return ResponseEntity.status(HttpStatus.OK).body(teamMapper.toDto(teamService.createTeams(teamsDto)));
+    @PutMapping("/{id}")
+    @Operation(
+            operationId = "updateTeam",
+            summary = "Update a team"
+    )
+    public ResponseEntity<TeamResponseDto> updateTeam(
+            @PathVariable Long id,
+            @Valid @RequestBody TeamRequestDto teamRequestDto) {
+
+        Team team = teamService.updateTeam(id, teamRequestDto);
+
+        return ResponseEntity.ok(
+                teamMapper.toDto(team)
+        );
     }
 
     @GetMapping(value = "/{id}")

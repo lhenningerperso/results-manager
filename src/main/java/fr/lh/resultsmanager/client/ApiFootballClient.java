@@ -1,6 +1,5 @@
 package fr.lh.resultsmanager.client;
 
-import fr.lh.resultsmanager.dtos.apiDtos.MatchApiDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.http.HttpEntity;
@@ -24,7 +23,7 @@ public class ApiFootballClient {
         this.restTemplate = restTemplateBuilder.build();
     }
 
-    public List<MatchApiDto> getMatchsByRoundAndLeagueAndSeason(String round, int idLeague, String season){
+/*    public List<MatchApiDto> getMatchsByRoundAndLeagueAndSeason(String round, int idLeague, String season){
         String url = String.format("https://v3.football.api-sports.io/fixtures?league=%d&round=%s&season=%s",idLeague,round,season);
         ResponseEntity<MatchApiDto[]> response = restTemplate.exchange(
                 url,
@@ -33,7 +32,7 @@ public class ApiFootballClient {
                 MatchApiDto[].class
         );
        return response.getBody() != null ? Arrays.asList(response.getBody()) : null;
-    }
+    }*/
 
     private HttpHeaders getHttpHeaders() {
         HttpHeaders httpHeaders = new HttpHeaders();

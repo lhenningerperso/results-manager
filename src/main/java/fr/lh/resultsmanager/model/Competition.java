@@ -11,7 +11,15 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-@Table(name = "COMPETITION")
+@Table(
+        name = "COMPETITION",
+        uniqueConstraints = {
+                @UniqueConstraint(
+                        name = "uk_competition_league_season",
+                        columnNames = {"LEAGUE_ID", "SEASON"}
+                )
+        }
+)
 public class Competition {
 
     @Id
@@ -23,7 +31,7 @@ public class Competition {
     private Long id;
     @Column(name="SEASON")
     private String season;
-    @ManyToOne
+    @ManyToOne(optional = false)
     @JoinColumn(name="LEAGUE_ID")
     private League league;
 

@@ -3,7 +3,7 @@ package fr.lh.resultsmanager.service;
 import fr.lh.resultsmanager.dtos.request.LeagueRequestDto;
 import fr.lh.resultsmanager.exception.ResourceNotFoundException;
 import fr.lh.resultsmanager.model.League;
-import fr.lh.resultsmanager.repository.LeaguesRepository;
+import fr.lh.resultsmanager.repository.LeagueRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,7 +13,7 @@ import java.util.List;
 public class LeagueService {
 
     @Autowired
-    LeaguesRepository leaguesRepository;
+    LeagueRepository leagueRepository;
 
     public League createLeague(LeagueRequestDto leagueRequestDto){
         League league = new League();
@@ -21,15 +21,15 @@ public class LeagueService {
         league.setLevel(leagueRequestDto.getLevel());
         league.setCountry(leagueRequestDto.getCountry());
         league.setGroup(leagueRequestDto.getGroup());
-        return leaguesRepository.save(league);
+        return leagueRepository.save(league);
     }
 
     public List<League> getAllLeagues() {
-        return leaguesRepository.findAll();
+        return leagueRepository.findAll();
     }
 
     public League getLeagueById(Long leagueId) {
-        return leaguesRepository.findById(leagueId).orElseThrow(() -> new ResourceNotFoundException("League", leagueId));
+        return leagueRepository.findById(leagueId).orElseThrow(() -> new ResourceNotFoundException("League with id " + leagueId + " not found"));
     }
 
 }

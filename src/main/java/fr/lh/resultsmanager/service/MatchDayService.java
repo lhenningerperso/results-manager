@@ -39,6 +39,6 @@ public class MatchDayService {
     public List<MatchDay> getAllMatchDays(){ return matchDayRepository.findAll(); }
 
     public MatchDay getMatchDayById(Long matchDayId) {
-        return matchDayRepository.findById(matchDayId).orElseThrow(() -> new ResourceNotFoundException("MatchDay", matchDayId));
+        return matchDayRepository.findById(matchDayId).orElseThrow(() -> new ResourceNotFoundException("MatchDay with id " + matchDayId + " not found"));
     }
 }

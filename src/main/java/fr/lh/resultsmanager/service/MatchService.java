@@ -39,7 +39,7 @@ public class MatchService {
     }
 
     public Match getMatchById(Long matchId) {
-        return matchRepository.findById(matchId).orElseThrow(() -> new ResourceNotFoundException("Match",matchId));
+        return matchRepository.findById(matchId).orElseThrow(() -> new ResourceNotFoundException("Match with id " + matchId + " not found"));
     }
 
     public List<Match> getAllMatches() {

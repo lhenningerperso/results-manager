@@ -22,7 +22,6 @@ import lombok.Setter;
 @Table(name = "MATCHS")
 public class Match {
 
-
     @Id
     @SequenceGenerator(name = "match_seq",
             sequenceName = "match_sequence",
@@ -30,6 +29,8 @@ public class Match {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "match_seq")
     @Column(name="ID")
     private Long id;
+    @Column(name = "EXTERNAL_ID", nullable = false, unique = true)
+    private Long externalId;
     @ManyToOne(optional = false)
     @JoinColumn(name="MATCHDAY_ID", nullable = false)
     private MatchDay matchDay;
@@ -47,8 +48,9 @@ public class Match {
     private Status status;
 
     @Builder
-    private Match(MatchDay matchDay, Team homeTeam, Team awayTeam, int homeScore, int awayScore, Status status){
+    private Match(MatchDay matchDay, Long externalId, Team homeTeam, Team awayTeam, Integer homeScore, Integer awayScore, Status status){
         this.matchDay=matchDay;
+        this.externalId=externalId;
         this.homeTeam=homeTeam;
         this.awayTeam=awayTeam;
         this.homeScore=homeScore;

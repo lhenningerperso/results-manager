@@ -12,7 +12,12 @@ import jakarta.persistence.*;
 @Getter
 @Setter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-@Table(name = "TEAM")
+@Table(
+        name = "TEAM",
+        uniqueConstraints = {
+                @UniqueConstraint(name = "uk_team_external_id", columnNames = "EXTERNAL_ID")
+        }
+)
 public class Team {
 
     @Id
@@ -22,6 +27,8 @@ public class Team {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "team_seq")
     @Column(name="ID")
     private Long id;
+    @Column(name = "EXTERNAL_ID")
+    private Long externalId;
     @Column(name="NAME")
     private String name;
     @Column(name="SHORTNAME")
@@ -30,7 +37,8 @@ public class Team {
     private String city;
 
     @Builder
-    private Team(String name, String city, String shortName){
+    private Team(Long externalId, String name, String city, String shortName){
+        this.externalId=externalId;
         this.name=name;
         this.city=city;
         this.shortName=shortName;

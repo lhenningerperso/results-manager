@@ -9,6 +9,7 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
+import jakarta.persistence.UniqueConstraint;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
@@ -19,7 +20,13 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-@Table(name = "MATCHDAY")
+@Table(name = "MATCHDAY",
+        uniqueConstraints = {
+                @UniqueConstraint(
+                        name = "uk_matchday_competition_number",
+                        columnNames = {"COMPETITION_ID", "NUMBER"}
+                )
+        })
 public class MatchDay {
 
     @Id
@@ -31,11 +38,13 @@ public class MatchDay {
     @Setter
     @Column(name="ID")
     private Long id;
-    @ManyToOne
+    @ManyToOne(optional = false)
     @JoinColumn(name="COMPETITION_ID")
     private Competition competition;
     @Column(name="NUMBER")
     private String number;
+    @Column(name="EXTERNAL_ROUND")
+    private String externalRound;
 
     @Builder
     private MatchDay(Competition competition, String number){
