@@ -1,25 +1,18 @@
 package fr.lh.resultsmanager.controllers;
 
-import fr.lh.resultsmanager.client.ApiFootballClient;
 import fr.lh.resultsmanager.dtos.external.ExternalMatchesResponse;
 import fr.lh.resultsmanager.dtos.external.ExternalTeamsResponse;
 import fr.lh.resultsmanager.dtos.external.result.ImportResultDto;
 import fr.lh.resultsmanager.service.MatchImportService;
 import fr.lh.resultsmanager.service.TeamImportService;
 import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
-import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
