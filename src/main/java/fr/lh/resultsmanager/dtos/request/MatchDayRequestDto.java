@@ -8,5 +8,6 @@ import lombok.Setter;
 public class MatchDayRequestDto {
 
     private Long competitionId;
-    private String number;
+    private String label;
+    private int position;
 }

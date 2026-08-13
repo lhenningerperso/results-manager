@@ -34,7 +34,7 @@ public class MatchMapper {
     private MatchDaySummaryDto toMatchDaySummary(MatchDay matchDay) {
         return new MatchDaySummaryDto(
                 matchDay.getId(),
-                matchDay.getNumber()
+                matchDay.getLabel()
         );
     }
 

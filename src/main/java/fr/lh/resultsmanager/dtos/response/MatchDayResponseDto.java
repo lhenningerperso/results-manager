@@ -11,5 +11,5 @@ public class MatchDayResponseDto {
 
     private Long id;
     private CompetitionSummaryDto competition;
-    private String number;
+    private String label;
 }

@@ -21,7 +21,8 @@ public class MatchDayService {
     public MatchDay createMatchDay(MatchDayRequestDto matchDayRequestDto){
         MatchDay matchDay = MatchDay.builder()
                 .competition(competitionService.getCompetitionById(matchDayRequestDto.getCompetitionId()))
-                .number(matchDayRequestDto.getNumber())
+                .label(matchDayRequestDto.getLabel())
+                .position(matchDayRequestDto.getPosition())
                 .build();
         return matchDayRepository.save(matchDay);
     }
@@ -30,7 +31,8 @@ public class MatchDayService {
         List<MatchDay> matchDays = matchDayRequestDtos.stream()
                 .map(matchDayRequestDto -> MatchDay.builder()
                         .competition(competitionService.getCompetitionById(matchDayRequestDto.getCompetitionId()))
-                        .number(matchDayRequestDto.getNumber())
+                        .label(matchDayRequestDto.getLabel())
+                        .position(matchDayRequestDto.getPosition())
                         .build())
                 .toList();
         return matchDayRepository.saveAll(matchDays);

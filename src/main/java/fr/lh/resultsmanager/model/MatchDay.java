@@ -23,8 +23,8 @@ import lombok.Setter;
 @Table(name = "MATCHDAY",
         uniqueConstraints = {
                 @UniqueConstraint(
-                        name = "uk_matchday_competition_number",
-                        columnNames = {"COMPETITION_ID", "NUMBER"}
+                        name = "uk_matchday_competition_label",
+                        columnNames = {"COMPETITION_ID", "LABEL"}
                 )
         })
 public class MatchDay {
@@ -41,15 +41,18 @@ public class MatchDay {
     @ManyToOne(optional = false)
     @JoinColumn(name="COMPETITION_ID")
     private Competition competition;
-    @Column(name="NUMBER")
-    private String number;
+    @Column(name="LABEL")
+    private String label;
+    @Column(name="POSITION")
+    private int position;
     @Column(name="EXTERNAL_ROUND")
     private String externalRound;
 
     @Builder
-    private MatchDay(Competition competition, String number){
+    private MatchDay(Competition competition, String label, int position){
         this.competition=competition;
-        this.number=number;
+        this.label = label;
+        this.position=position;
     }
 
 }

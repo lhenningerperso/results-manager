@@ -10,6 +10,6 @@ import java.util.Optional;
 @Repository
 public interface MatchDayRepository extends JpaRepository<MatchDay, Long> {
 
-    Optional<MatchDay> findByCompetitionAndNumber(Competition competition, String number);
+    Optional<MatchDay> findByCompetitionAndLabel(Competition competition, String label);
 
 }

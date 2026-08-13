@@ -112,7 +112,7 @@ public class MatchImportService {
         );
 
         return matchDayRepository
-                .findByCompetitionAndNumber(competition, number)
+                .findByCompetitionAndLabel(competition, number)
                 .orElseThrow(() ->
                         new ResourceNotFoundException(
                                 "MatchDay " + number

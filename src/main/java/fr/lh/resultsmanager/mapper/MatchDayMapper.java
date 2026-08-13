@@ -14,7 +14,7 @@ public class MatchDayMapper {
         return MatchDayResponseDto.builder()
                 .id(md.getId())
                 .competition(toCompetitionSummaryDto(md))
-                .number(md.getNumber())
+                .label(md.getLabel())
                 .build();
     }
 
