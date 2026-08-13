@@ -1,0 +1,216 @@
+databaseChangeLog:
+
+  - changeSet:
+      id: 003-seed-teams
+      author: lh
+      changes:
+
+        - insert:
+            tableName: TEAM
+            columns:
+              - column: { name: ID, valueNumeric: 1 }
+              - column: { name: EXTERNAL_ID, valueNumeric: 85 }
+              - column: { name: NAME, value: Paris Saint-Germain }
+              - column: { name: SHORTNAME, value: PSG }
+              - column: { name: CITY, value: Paris }
+
+        - insert:
+            tableName: TEAM
+            columns:
+              - column: { name: ID, valueNumeric: 2 }
+              - column: { name: EXTERNAL_ID, valueNumeric: 81 }
+              - column: { name: NAME, value: Olympique de Marseille }
+              - column: { name: SHORTNAME, value: OM }
+              - column: { name: CITY, value: Marseille }
+
+        - insert:
+            tableName: TEAM
+            columns:
+              - column: { name: ID, valueNumeric: 3 }
+              - column: { name: EXTERNAL_ID, valueNumeric: 91 }
+              - column: { name: NAME, value: AS Monaco }
+              - column: { name: SHORTNAME, value: ASM }
+              - column: { name: CITY, value: Monaco }
+
+        - insert:
+            tableName: TEAM
+            columns:
+              - column: { name: ID, valueNumeric: 4 }
+              - column: { name: EXTERNAL_ID, valueNumeric: 84 }
+              - column: { name: NAME, value: OGC Nice }
+              - column: { name: SHORTNAME, value: OGCN }
+              - column: { name: CITY, value: Nice }
+
+        - insert:
+            tableName: TEAM
+            columns:
+              - column: { name: ID, valueNumeric: 5 }
+              - column: { name: EXTERNAL_ID, valueNumeric: 79 }
+              - column: { name: NAME, value: LOSC Lille }
+              - column: { name: SHORTNAME, value: LOSC }
+              - column: { name: CITY, value: Lille }
+
+        - insert:
+            tableName: TEAM
+            columns:
+              - column: { name: ID, valueNumeric: 6 }
+              - column: { name: EXTERNAL_ID, valueNumeric: 80 }
+              - column: { name: NAME, value: Olympique lyonnais }
+              - column: { name: SHORTNAME, value: OL }
+              - column: { name: CITY, value: Lyon }
+
+        - insert:
+            tableName: TEAM
+            columns:
+              - column: { name: ID, valueNumeric: 7 }
+              - column: { name: EXTERNAL_ID, valueNumeric: 95 }
+              - column: { name: NAME, value: Strasbourg }
+              - column: { name: SHORTNAME, value: RCSA }
+              - column: { name: CITY, value: Strasbourg }
+
+        - insert:
+            tableName: TEAM
+            columns:
+              - column: { name: ID, valueNumeric: 8 }
+              - column: { name: EXTERNAL_ID, valueNumeric: 116 }
+              - column: { name: NAME, value: RC Lens }
+              - column: { name: SHORTNAME, value: RCL }
+              - column: { name: CITY, value: Lens }
+
+        - insert:
+            tableName: TEAM
+            columns:
+              - column: { name: ID, valueNumeric: 9 }
+              - column: { name: EXTERNAL_ID, valueNumeric: 106 }
+              - column: { name: NAME, value: Stade brestois 29 }
+              - column: { name: SHORTNAME, value: SB29 }
+              - column: { name: CITY, value: Brest }
+
+        - insert:
+            tableName: TEAM
+            columns:
+              - column: { name: ID, valueNumeric: 10 }
+              - column: { name: EXTERNAL_ID, valueNumeric: 96 }
+              - column: { name: NAME, value: Toulouse FC }
+              - column: { name: SHORTNAME, value: TFC }
+              - column: { name: CITY, value: Toulouse }
+
+        - insert:
+            tableName: TEAM
+            columns:
+              - column: { name: ID, valueNumeric: 11 }
+              - column: { name: EXTERNAL_ID, valueNumeric: 112 }
+              - column: { name: NAME, value: FC Metz }
+              - column: { name: SHORTNAME, value: FCM }
+              - column: { name: CITY, value: Metz }
+
+        - insert:
+            tableName: TEAM
+            columns:
+              - column: { name: ID, valueNumeric: 12 }
+              - column: { name: EXTERNAL_ID, valueNumeric: 108 }
+              - column: { name: NAME, value: AJ Auxerre }
+              - column: { name: SHORTNAME, value: AJA }
+              - column: { name: CITY, value: Auxerre }
+
+        - insert:
+            tableName: TEAM
+            columns:
+              - column: { name: ID, valueNumeric: 13 }
+              - column: { name: EXTERNAL_ID, valueNumeric: 94 }
+              - column: { name: NAME, value: Stade rennais FC }
+              - column: { name: SHORTNAME, value: SRFC }
+              - column: { name: CITY, value: Rennes }
+
+        - insert:
+            tableName: TEAM
+            columns:
+              - column: { name: ID, valueNumeric: 14 }
+              - column: { name: EXTERNAL_ID, valueNumeric: 83 }
+              - column: { name: NAME, value: FC Nantes }
+              - column: { name: SHORTNAME, value: FCN }
+              - column: { name: CITY, value: Nantes }
+
+        - insert:
+            tableName: TEAM
+            columns:
+              - column: { name: ID, valueNumeric: 15 }
+              - column: { name: EXTERNAL_ID, valueNumeric: 77 }
+              - column: { name: NAME, value: Angers SCO }
+              - column: { name: SHORTNAME, value: SCO }
+              - column: { name: CITY, value: Angers }
+
+        - insert:
+            tableName: TEAM
+            columns:
+              - column: { name: ID, valueNumeric: 16 }
+              - column: { name: EXTERNAL_ID, valueNumeric: 111 }
+              - column: { name: NAME, value: Le Havre AC }
+              - column: { name: SHORTNAME, value: HAC }
+              - column: { name: CITY, value: Le Havre }
+
+        - insert:
+            tableName: TEAM
+            columns:
+              - column: { name: ID, valueNumeric: 19 }
+              - column: { name: EXTERNAL_ID, valueNumeric: 93 }
+              - column: { name: NAME, value: Stade de Reims }
+              - column: { name: SHORTNAME, value: SDR }
+              - column: { name: CITY, value: Reims }
+
+        - insert:
+            tableName: TEAM
+            columns:
+              - column: { name: ID, valueNumeric: 20 }
+              - column: { name: EXTERNAL_ID, valueNumeric: 1063 }
+              - column: { name: NAME, value: AS Saint-étienne }
+              - column: { name: SHORTNAME, value: ASSE }
+              - column: { name: CITY, value: Saint-étienne }
+
+        - insert:
+            tableName: TEAM
+            columns:
+              - column: { name: ID, valueNumeric: 21 }
+              - column: { name: EXTERNAL_ID, valueNumeric: 82 }
+              - column: { name: NAME, value: Montpellier HSC }
+              - column: { name: SHORTNAME, value: MHSC }
+              - column: { name: CITY, value: Montpellier }
+
+        - insert:
+            tableName: TEAM
+            columns:
+              - column: { name: ID, valueNumeric: 25 }
+              - column: { name: EXTERNAL_ID, valueNumeric: 97 }
+              - column: { name: NAME, value: FC Lorient }
+              - column: { name: SHORTNAME, value: FCL }
+              - column: { name: CITY, value: Lorient }
+
+        - insert:
+            tableName: TEAM
+            columns:
+              - column: { name: ID, valueNumeric: 26 }
+              - column: { name: EXTERNAL_ID, valueNumeric: 99 }
+              - column: { name: NAME, value: Clermont Foot 63 }
+              - column: { name: SHORTNAME, value: CF63 }
+              - column: { name: CITY, value: Clermont-Ferrand }
+
+        - insert:
+            tableName: TEAM
+            columns:
+              - column: { name: ID, valueNumeric: 27 }
+              - column: { name: EXTERNAL_ID, valueNumeric: 98 }
+              - column: { name: NAME, value: AC Ajaccio }
+              - column: { name: SHORTNAME, value: ACA }
+              - column: { name: CITY, value: Ajaccio }
+
+        - insert:
+            tableName: TEAM
+            columns:
+              - column: { name: ID, valueNumeric: 28 }
+              - column: { name: EXTERNAL_ID, valueNumeric: 110 }
+              - column: { name: NAME, value: Estac Troyes }
+              - column: { name: SHORTNAME, value: ESTAC }
+              - column: { name: CITY, value: Troyes }
+
+        - sql:
+            sql: SELECT setval('team_sequence', 28, true)

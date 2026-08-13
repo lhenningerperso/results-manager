@@ -1,0 +1,225 @@
+databaseChangeLog:
+
+  - changeSet:
+      id: 006-seed-matches
+      author: lh
+      changes:
+
+        - insert:
+            tableName: MATCHS
+            columns:
+              - column: { name: ID, valueNumeric: 2 }
+              - column: { name: EXTERNAL_ID, valueNumeric: 1213754 }
+              - column: { name: MATCHDAY_ID, valueNumeric: 2 }
+              - column: { name: HOME_TEAM_ID, valueNumeric: 16 }
+              - column: { name: AWAY_TEAM_ID, valueNumeric: 1 }
+              - column: { name: HOME_SCORE, valueNumeric: 1 }
+              - column: { name: AWAY_SCORE, valueNumeric: 4 }
+              - column: { name: STATUS, value: FINISHED }
+
+        - insert:
+            tableName: MATCHS
+            columns:
+              - column: { name: ID, valueNumeric: 3 }
+              - column: { name: EXTERNAL_ID, valueNumeric: 1213747 }
+              - column: { name: MATCHDAY_ID, valueNumeric: 2 }
+              - column: { name: HOME_TEAM_ID, valueNumeric: 9 }
+              - column: { name: AWAY_TEAM_ID, valueNumeric: 2 }
+              - column: { name: HOME_SCORE, valueNumeric: 1 }
+              - column: { name: AWAY_SCORE, valueNumeric: 5 }
+              - column: { name: STATUS, value: FINISHED }
+
+        - insert:
+            tableName: MATCHS
+            columns:
+              - column: { name: ID, valueNumeric: 4 }
+              - column: { name: EXTERNAL_ID, valueNumeric: 1213752 }
+              - column: { name: MATCHDAY_ID, valueNumeric: 2 }
+              - column: { name: HOME_TEAM_ID, valueNumeric: 19 }
+              - column: { name: AWAY_TEAM_ID, valueNumeric: 5 }
+              - column: { name: HOME_SCORE, valueNumeric: 0 }
+              - column: { name: AWAY_SCORE, valueNumeric: 2 }
+              - column: { name: STATUS, value: FINISHED }
+
+        - insert:
+            tableName: MATCHS
+            columns:
+              - column: { name: ID, valueNumeric: 5 }
+              - column: { name: EXTERNAL_ID, valueNumeric: 1213751 }
+              - column: { name: MATCHDAY_ID, valueNumeric: 2 }
+              - column: { name: HOME_TEAM_ID, valueNumeric: 3 }
+              - column: { name: AWAY_TEAM_ID, valueNumeric: 20 }
+              - column: { name: HOME_SCORE, valueNumeric: 1 }
+              - column: { name: AWAY_SCORE, valueNumeric: 0 }
+              - column: { name: STATUS, value: FINISHED }
+
+        - insert:
+            tableName: MATCHS
+            columns:
+              - column: { name: ID, valueNumeric: 6 }
+              - column: { name: EXTERNAL_ID, valueNumeric: 1213753 }
+              - column: { name: MATCHDAY_ID, valueNumeric: 2 }
+              - column: { name: HOME_TEAM_ID, valueNumeric: 12 }
+              - column: { name: AWAY_TEAM_ID, valueNumeric: 4 }
+              - column: { name: HOME_SCORE, valueNumeric: 2 }
+              - column: { name: AWAY_SCORE, valueNumeric: 1 }
+              - column: { name: STATUS, value: FINISHED }
+
+        - insert:
+            tableName: MATCHS
+            columns:
+              - column: { name: ID, valueNumeric: 7 }
+              - column: { name: EXTERNAL_ID, valueNumeric: 1213750 }
+              - column: { name: MATCHDAY_ID, valueNumeric: 2 }
+              - column: { name: HOME_TEAM_ID, valueNumeric: 15 }
+              - column: { name: AWAY_TEAM_ID, valueNumeric: 8 }
+              - column: { name: HOME_SCORE, valueNumeric: 0 }
+              - column: { name: AWAY_SCORE, valueNumeric: 1 }
+              - column: { name: STATUS, value: FINISHED }
+
+        - insert:
+            tableName: MATCHS
+            columns:
+              - column: { name: ID, valueNumeric: 8 }
+              - column: { name: EXTERNAL_ID, valueNumeric: 1213748 }
+              - column: { name: MATCHDAY_ID, valueNumeric: 2 }
+              - column: { name: HOME_TEAM_ID, valueNumeric: 21 }
+              - column: { name: AWAY_TEAM_ID, valueNumeric: 7 }
+              - column: { name: HOME_SCORE, valueNumeric: 1 }
+              - column: { name: AWAY_SCORE, valueNumeric: 1 }
+              - column: { name: STATUS, value: FINISHED }
+
+        - insert:
+            tableName: MATCHS
+            columns:
+              - column: { name: ID, valueNumeric: 9 }
+              - column: { name: EXTERNAL_ID, valueNumeric: 1213749 }
+              - column: { name: MATCHDAY_ID, valueNumeric: 2 }
+              - column: { name: HOME_TEAM_ID, valueNumeric: 10 }
+              - column: { name: AWAY_TEAM_ID, valueNumeric: 14 }
+              - column: { name: HOME_SCORE, valueNumeric: 0 }
+              - column: { name: AWAY_SCORE, valueNumeric: 0 }
+              - column: { name: STATUS, value: FINISHED }
+
+        - insert:
+            tableName: MATCHS
+            columns:
+              - column: { name: ID, valueNumeric: 10 }
+              - column: { name: EXTERNAL_ID, valueNumeric: 1213755 }
+              - column: { name: MATCHDAY_ID, valueNumeric: 2 }
+              - column: { name: HOME_TEAM_ID, valueNumeric: 13 }
+              - column: { name: AWAY_TEAM_ID, valueNumeric: 6 }
+              - column: { name: HOME_SCORE, valueNumeric: 3 }
+              - column: { name: AWAY_SCORE, valueNumeric: 0 }
+              - column: { name: STATUS, value: FINISHED }
+
+        - insert:
+            tableName: MATCHS
+            columns:
+              - column: { name: ID, valueNumeric: 11 }
+              - column: { name: EXTERNAL_ID, valueNumeric: 1213756 }
+              - column: { name: MATCHDAY_ID, valueNumeric: 3 }
+              - column: { name: HOME_TEAM_ID, valueNumeric: 1 }
+              - column: { name: AWAY_TEAM_ID, valueNumeric: 21 }
+              - column: { name: HOME_SCORE, valueNumeric: 6 }
+              - column: { name: AWAY_SCORE, valueNumeric: 0 }
+              - column: { name: STATUS, value: FINISHED }
+
+        - insert:
+            tableName: MATCHS
+            columns:
+              - column: { name: ID, valueNumeric: 12 }
+              - column: { name: EXTERNAL_ID, valueNumeric: 1213763 }
+              - column: { name: MATCHDAY_ID, valueNumeric: 3 }
+              - column: { name: HOME_TEAM_ID, valueNumeric: 6 }
+              - column: { name: AWAY_TEAM_ID, valueNumeric: 3 }
+              - column: { name: HOME_SCORE, valueNumeric: 0 }
+              - column: { name: AWAY_SCORE, valueNumeric: 2 }
+              - column: { name: STATUS, value: FINISHED }
+
+        - insert:
+            tableName: MATCHS
+            columns:
+              - column: { name: ID, valueNumeric: 13 }
+              - column: { name: EXTERNAL_ID, valueNumeric: 1213760 }
+              - column: { name: MATCHDAY_ID, valueNumeric: 3 }
+              - column: { name: HOME_TEAM_ID, valueNumeric: 5 }
+              - column: { name: AWAY_TEAM_ID, valueNumeric: 15 }
+              - column: { name: HOME_SCORE, valueNumeric: 2 }
+              - column: { name: AWAY_SCORE, valueNumeric: 0 }
+              - column: { name: STATUS, value: FINISHED }
+
+        - insert:
+            tableName: MATCHS
+            columns:
+              - column: { name: ID, valueNumeric: 14 }
+              - column: { name: EXTERNAL_ID, valueNumeric: 1213759 }
+              - column: { name: MATCHDAY_ID, valueNumeric: 3 }
+              - column: { name: HOME_TEAM_ID, valueNumeric: 20 }
+              - column: { name: AWAY_TEAM_ID, valueNumeric: 16 }
+              - column: { name: HOME_SCORE, valueNumeric: 0 }
+              - column: { name: AWAY_SCORE, valueNumeric: 2 }
+              - column: { name: STATUS, value: FINISHED }
+
+        - insert:
+            tableName: MATCHS
+            columns:
+              - column: { name: ID, valueNumeric: 15 }
+              - column: { name: EXTERNAL_ID, valueNumeric: 1213762 }
+              - column: { name: MATCHDAY_ID, valueNumeric: 3 }
+              - column: { name: HOME_TEAM_ID, valueNumeric: 8 }
+              - column: { name: AWAY_TEAM_ID, valueNumeric: 9 }
+              - column: { name: HOME_SCORE, valueNumeric: 2 }
+              - column: { name: AWAY_SCORE, valueNumeric: 0 }
+              - column: { name: STATUS, value: FINISHED }
+
+        - insert:
+            tableName: MATCHS
+            columns:
+              - column: { name: ID, valueNumeric: 16 }
+              - column: { name: EXTERNAL_ID, valueNumeric: 1213758 }
+              - column: { name: MATCHDAY_ID, valueNumeric: 3 }
+              - column: { name: HOME_TEAM_ID, valueNumeric: 14 }
+              - column: { name: AWAY_TEAM_ID, valueNumeric: 12 }
+              - column: { name: HOME_SCORE, valueNumeric: 2 }
+              - column: { name: AWAY_SCORE, valueNumeric: 0 }
+              - column: { name: STATUS, value: FINISHED }
+
+        - insert:
+            tableName: MATCHS
+            columns:
+              - column: { name: ID, valueNumeric: 17 }
+              - column: { name: EXTERNAL_ID, valueNumeric: 1213761 }
+              - column: { name: MATCHDAY_ID, valueNumeric: 3 }
+              - column: { name: HOME_TEAM_ID, valueNumeric: 4 }
+              - column: { name: AWAY_TEAM_ID, valueNumeric: 10 }
+              - column: { name: HOME_SCORE, valueNumeric: 1 }
+              - column: { name: AWAY_SCORE, valueNumeric: 1 }
+              - column: { name: STATUS, value: FINISHED }
+
+        - insert:
+            tableName: MATCHS
+            columns:
+              - column: { name: ID, valueNumeric: 18 }
+              - column: { name: EXTERNAL_ID, valueNumeric: 1213757 }
+              - column: { name: MATCHDAY_ID, valueNumeric: 3 }
+              - column: { name: HOME_TEAM_ID, valueNumeric: 7 }
+              - column: { name: AWAY_TEAM_ID, valueNumeric: 13 }
+              - column: { name: HOME_SCORE, valueNumeric: 3 }
+              - column: { name: AWAY_SCORE, valueNumeric: 1 }
+              - column: { name: STATUS, value: FINISHED }
+
+        - insert:
+            tableName: MATCHS
+            columns:
+              - column: { name: ID, valueNumeric: 19 }
+              - column: { name: EXTERNAL_ID, valueNumeric: 1213764 }
+              - column: { name: MATCHDAY_ID, valueNumeric: 3 }
+              - column: { name: HOME_TEAM_ID, valueNumeric: 2 }
+              - column: { name: AWAY_TEAM_ID, valueNumeric: 19 }
+              - column: { name: HOME_SCORE, valueNumeric: 2 }
+              - column: { name: AWAY_SCORE, valueNumeric: 2 }
+              - column: { name: STATUS, value: FINISHED }
+
+        - sql:
+            sql: SELECT setval('match_sequence', 19, true)

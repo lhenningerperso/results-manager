@@ -1,0 +1,270 @@
+databaseChangeLog:
+
+  - changeSet:
+      id: 001-create-sequences
+      author: lh
+      changes:
+
+        - createSequence:
+            sequenceName: leagues_sequence
+            startValue: 1
+            incrementBy: 1
+
+        - createSequence:
+            sequenceName: competition_sequence
+            startValue: 1
+            incrementBy: 1
+
+        - createSequence:
+            sequenceName: matchday_sequence
+            startValue: 1
+            incrementBy: 1
+
+        - createSequence:
+            sequenceName: team_sequence
+            startValue: 5
+            incrementBy: 1
+
+        - createSequence:
+            sequenceName: match_sequence
+            startValue: 1
+            incrementBy: 1
+
+  - changeSet:
+      id: 002-create-leagues
+      author: lh
+      changes:
+
+        - createTable:
+            tableName: LEAGUES
+            columns:
+
+              - column:
+                  name: ID
+                  type: BIGINT
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+
+              - column:
+                  name: EXTERNAL_ID
+                  type: BIGINT
+
+              - column:
+                  name: LABEL
+                  type: VARCHAR(255)
+
+              - column:
+                  name: LEVEL
+                  type: INTEGER
+                  constraints:
+                    nullable: false
+
+              - column:
+                  name: COUNTRY
+                  type: VARCHAR(255)
+
+              - column:
+                  name: LEAGUE_GROUP
+                  type: VARCHAR(255)
+
+  - changeSet:
+      id: 003-create-team
+      author: lh
+      changes:
+
+        - createTable:
+            tableName: TEAM
+            columns:
+
+              - column:
+                  name: ID
+                  type: BIGINT
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+
+              - column:
+                  name: EXTERNAL_ID
+                  type: BIGINT
+
+              - column:
+                  name: NAME
+                  type: VARCHAR(255)
+
+              - column:
+                  name: SHORTNAME
+                  type: VARCHAR(255)
+
+              - column:
+                  name: CITY
+                  type: VARCHAR(255)
+
+        - addUniqueConstraint:
+            tableName: TEAM
+            columnNames: EXTERNAL_ID
+            constraintName: uk_team_external_id
+
+  - changeSet:
+      id: 004-create-competition
+      author: lh
+      changes:
+
+        - createTable:
+            tableName: COMPETITION
+            columns:
+
+              - column:
+                  name: ID
+                  type: BIGINT
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+
+              - column:
+                  name: SEASON
+                  type: VARCHAR(255)
+
+              - column:
+                  name: LEAGUE_ID
+                  type: BIGINT
+                  constraints:
+                    nullable: false
+
+        - addUniqueConstraint:
+            tableName: COMPETITION
+            columnNames: LEAGUE_ID, SEASON
+            constraintName: uk_competition_league_season
+
+        - addForeignKeyConstraint:
+            baseTableName: COMPETITION
+            baseColumnNames: LEAGUE_ID
+            referencedTableName: LEAGUES
+            referencedColumnNames: ID
+            constraintName: fk_competition_league
+
+  - changeSet:
+      id: 005-create-matchday
+      author: lh
+      changes:
+
+        - createTable:
+            tableName: MATCHDAY
+            columns:
+
+              - column:
+                  name: ID
+                  type: BIGINT
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+
+              - column:
+                  name: COMPETITION_ID
+                  type: BIGINT
+                  constraints:
+                    nullable: false
+
+              - column:
+                  name: LABEL
+                  type: VARCHAR(255)
+
+              - column:
+                  name: POSITION
+                  type: INTEGER
+                  constraints:
+                    nullable: false
+
+              - column:
+                  name: EXTERNAL_ROUND
+                  type: VARCHAR(255)
+
+        - addUniqueConstraint:
+            tableName: MATCHDAY
+            columnNames: COMPETITION_ID, LABEL
+            constraintName: uk_matchday_competition_label
+
+        - addForeignKeyConstraint:
+            baseTableName: MATCHDAY
+            baseColumnNames: COMPETITION_ID
+            referencedTableName: COMPETITION
+            referencedColumnNames: ID
+            constraintName: fk_matchday_competition
+
+  - changeSet:
+      id: 006-create-matchs
+      author: lh
+      changes:
+
+        - createTable:
+            tableName: MATCHS
+            columns:
+
+              - column:
+                  name: ID
+                  type: BIGINT
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+
+              - column:
+                  name: EXTERNAL_ID
+                  type: BIGINT
+                  constraints:
+                    nullable: false
+
+              - column:
+                  name: MATCHDAY_ID
+                  type: BIGINT
+                  constraints:
+                    nullable: false
+
+              - column:
+                  name: HOME_TEAM_ID
+                  type: BIGINT
+                  constraints:
+                    nullable: false
+
+              - column:
+                  name: AWAY_TEAM_ID
+                  type: BIGINT
+                  constraints:
+                    nullable: false
+
+              - column:
+                  name: HOME_SCORE
+                  type: INTEGER
+
+              - column:
+                  name: AWAY_SCORE
+                  type: INTEGER
+
+              - column:
+                  name: STATUS
+                  type: VARCHAR(20)
+
+        - addUniqueConstraint:
+            tableName: MATCHS
+            columnNames: EXTERNAL_ID
+            constraintName: uk_match_external_id
+
+        - addForeignKeyConstraint:
+            baseTableName: MATCHS
+            baseColumnNames: MATCHDAY_ID
+            referencedTableName: MATCHDAY
+            referencedColumnNames: ID
+            constraintName: fk_match_matchday
+
+        - addForeignKeyConstraint:
+            baseTableName: MATCHS
+            baseColumnNames: HOME_TEAM_ID
+            referencedTableName: TEAM
+            referencedColumnNames: ID
+            constraintName: fk_match_home_team
+
+        - addForeignKeyConstraint:
+            baseTableName: MATCHS
+            baseColumnNames: AWAY_TEAM_ID
+            referencedTableName: TEAM
+            referencedColumnNames: ID
+            constraintName: fk_match_away_team

@@ -1,0 +1,23 @@
+databaseChangeLog:
+
+  - changeSet:
+      id: 004-seed-competitions
+      author: lh
+      changes:
+
+        - insert:
+            tableName: COMPETITION
+            columns:
+              - column: { name: ID, valueNumeric: 2 }
+              - column: { name: SEASON, value: "2024" }
+              - column: { name: LEAGUE_ID, valueNumeric: 1 }
+
+        - insert:
+            tableName: COMPETITION
+            columns:
+              - column: { name: ID, valueNumeric: 1 }
+              - column: { name: SEASON, value: "2025" }
+              - column: { name: LEAGUE_ID, valueNumeric: 1 }
+
+        - sql:
+            sql: SELECT setval('competition_sequence', 2, true)

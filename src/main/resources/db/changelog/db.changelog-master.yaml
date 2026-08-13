@@ -1,0 +1,13 @@
+databaseChangeLog:
+  - include:
+      file: db/changelog/changes/001-create-schema.yaml
+  - include:
+      file: db/changelog/changes/002-seed-leagues.yaml
+  - include:
+      file: db/changelog/changes/003-seed-teams.yaml
+  - include:
+      file: db/changelog/changes/004-seed-competitions.yaml
+  - include:
+      file: db/changelog/changes/005-seed-matchdays.yaml
+  - include:
+      file: db/changelog/changes/006-seed-matches.yaml

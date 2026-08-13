@@ -1,0 +1,49 @@
+databaseChangeLog:
+
+  - changeSet:
+      id: 005-seed-matchdays
+      author: lh
+      changes:
+
+        - insert:
+            tableName: MATCHDAY
+            columns:
+              - column: { name: ID, valueNumeric: 1 }
+              - column: { name: COMPETITION_ID, valueNumeric: 1 }
+              - column: { name: LABEL, value: J1 }
+              - column: { name: POSITION, valueNumeric: 1 }
+
+        - insert:
+            tableName: MATCHDAY
+            columns:
+              - column: { name: ID, valueNumeric: 2 }
+              - column: { name: COMPETITION_ID, valueNumeric: 2 }
+              - column: { name: LABEL, value: J1 }
+              - column: { name: POSITION, valueNumeric: 1 }
+
+        - insert:
+            tableName: MATCHDAY
+            columns:
+              - column: { name: ID, valueNumeric: 3 }
+              - column: { name: COMPETITION_ID, valueNumeric: 2 }
+              - column: { name: LABEL, value: J2 }
+              - column: { name: POSITION, valueNumeric: 2 }
+
+        - insert:
+            tableName: MATCHDAY
+            columns:
+              - column: { name: ID, valueNumeric: 5 }
+              - column: { name: COMPETITION_ID, valueNumeric: 2 }
+              - column: { name: LABEL, value: J3 }
+              - column: { name: POSITION, valueNumeric: 3 }
+
+        - insert:
+            tableName: MATCHDAY
+            columns:
+              - column: { name: ID, valueNumeric: 6 }
+              - column: { name: COMPETITION_ID, valueNumeric: 2 }
+              - column: { name: LABEL, value: J4 }
+              - column: { name: POSITION, valueNumeric: 4 }
+
+        - sql:
+            sql: SELECT setval('matchday_sequence', 6, true)

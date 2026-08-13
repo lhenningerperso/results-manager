@@ -1,0 +1,63 @@
+databaseChangeLog:
+
+  - changeSet:
+      id: 002-seed-leagues
+      author: lh
+      changes:
+
+        - insert:
+            tableName: LEAGUES
+            columns:
+              - column:
+                  name: ID
+                  valueNumeric: 1
+              - column:
+                  name: EXTERNAL_ID
+                  valueNumeric: 61
+              - column:
+                  name: LABEL
+                  value: Ligue 1
+              - column:
+                  name: LEVEL
+                  valueNumeric: 1
+              - column:
+                  name: COUNTRY
+                  value: France
+
+        - insert:
+            tableName: LEAGUES
+            columns:
+              - column:
+                  name: ID
+                  valueNumeric: 2
+              - column:
+                  name: LABEL
+                  value: Régional 2
+              - column:
+                  name: LEVEL
+                  valueNumeric: 7
+              - column:
+                  name: COUNTRY
+                  value: France
+              - column:
+                  name: LEAGUE_GROUP
+                  value: A
+
+        - insert:
+            tableName: LEAGUES
+            columns:
+              - column:
+                  name: ID
+                  valueNumeric: 3
+              - column:
+                  name: LABEL
+                  value: Ligue 2
+              - column:
+                  name: LEVEL
+                  valueNumeric: 2
+              - column:
+                  name: COUNTRY
+                  value: France
+
+        - sql:
+            sql: SELECT setval('leagues_sequence', 3, true)
