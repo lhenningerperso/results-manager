@@ -265,7 +265,7 @@ class StandingServiceTest {
         assertThat(teamCStanding.played()).isEqualTo(2);
         assertThat(teamCStanding.wins()).isEqualTo(1);
         assertThat(teamCStanding.draws()).isEqualTo(1);
-        assertThat(teamCStanding.losses()).isEqualTo(0);
+        assertThat(teamCStanding.losses()).isZero();
         assertThat(teamCStanding.goalsFor()).isEqualTo(2);
         assertThat(teamCStanding.goalsAgainst()).isEqualTo(1);
         assertThat(teamCStanding.goalDifference()).isEqualTo(1);
@@ -282,7 +282,7 @@ class StandingServiceTest {
 
         assertThat(teamAStanding.played()).isEqualTo(2);
         assertThat(teamAStanding.wins()).isEqualTo(1);
-        assertThat(teamAStanding.draws()).isEqualTo(0);
+        assertThat(teamAStanding.draws()).isZero();
         assertThat(teamAStanding.losses()).isEqualTo(1);
         assertThat(teamAStanding.goalsFor()).isEqualTo(2);
         assertThat(teamAStanding.goalsAgainst()).isEqualTo(1);
@@ -300,11 +300,11 @@ class StandingServiceTest {
 
         assertThat(teamBStanding.played()).isEqualTo(2);
         assertThat(teamBStanding.wins()).isEqualTo(1);
-        assertThat(teamBStanding.draws()).isEqualTo(0);
+        assertThat(teamBStanding.draws()).isZero();
         assertThat(teamBStanding.losses()).isEqualTo(1);
         assertThat(teamBStanding.goalsFor()).isEqualTo(2);
         assertThat(teamBStanding.goalsAgainst()).isEqualTo(2);
-        assertThat(teamBStanding.goalDifference()).isEqualTo(0);
+        assertThat(teamBStanding.goalDifference()).isZero();
         assertThat(teamBStanding.points()).isEqualTo(3);
     }
 
@@ -405,7 +405,7 @@ class StandingServiceTest {
 
         // Team D has no points and must therefore be last.
         assertThat(standings.get(3).team().id()).isEqualTo(4L);
-        assertThat(standings.get(3).points()).isEqualTo(0);
+        assertThat(standings.get(3).points()).isZero();
     }
 
     @Test
