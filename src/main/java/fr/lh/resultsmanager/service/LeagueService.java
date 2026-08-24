@@ -17,11 +17,12 @@ public class LeagueService {
     private final LeagueRepository leagueRepository;
 
     public League createLeague(LeagueRequestDto leagueRequestDto){
-        League league = new League();
-        league.setLabel(leagueRequestDto.getLabel());
-        league.setLevel(leagueRequestDto.getLevel());
-        league.setCountry(leagueRequestDto.getCountry());
-        league.setGroup(leagueRequestDto.getGroup());
+        League league = League.builder()
+                .label(leagueRequestDto.getLabel())
+                .level(leagueRequestDto.getLevel())
+                .country(leagueRequestDto.getCountry())
+                .group(leagueRequestDto.getGroup())
+                .build();
         return leagueRepository.save(league);
     }
 
