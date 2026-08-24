@@ -29,8 +29,10 @@ jobs:
           cache: maven
 
       - name: Build and test
+        run: ./mvnw -B clean verify
+
+      - name: SonarQube analysis
+        if: github.actor != 'dependabot[bot]'
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        run: >
-          ./mvnw -B clean verify
-          org.sonarsource.scanner.maven:sonar-maven-plugin:5.7.0.6970:sonar
+        run: ./mvnw -B org.sonarsource.scanner.maven:sonar-maven-plugin:5.7.0.6970:sonar
