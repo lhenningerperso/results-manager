@@ -4,16 +4,17 @@ import fr.lh.resultsmanager.dtos.request.LeagueRequestDto;
 import fr.lh.resultsmanager.exception.ResourceNotFoundException;
 import fr.lh.resultsmanager.model.League;
 import fr.lh.resultsmanager.repository.LeagueRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class LeagueService {
 
-    @Autowired
-    LeagueRepository leagueRepository;
+    private final LeagueRepository leagueRepository;
 
     public League createLeague(LeagueRequestDto leagueRequestDto){
         League league = new League();

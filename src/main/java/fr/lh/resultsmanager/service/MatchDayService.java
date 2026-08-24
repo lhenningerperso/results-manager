@@ -4,19 +4,18 @@ import fr.lh.resultsmanager.dtos.request.MatchDayRequestDto;
 import fr.lh.resultsmanager.exception.ResourceNotFoundException;
 import fr.lh.resultsmanager.model.MatchDay;
 import fr.lh.resultsmanager.repository.MatchDayRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class MatchDayService {
 
-    @Autowired
-    MatchDayRepository matchDayRepository;
-
-    @Autowired
-    CompetitionService competitionService;
+    private final MatchDayRepository matchDayRepository;
+    private final CompetitionService competitionService;
 
     public MatchDay createMatchDay(MatchDayRequestDto matchDayRequestDto){
         MatchDay matchDay = MatchDay.builder()

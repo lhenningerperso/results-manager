@@ -2,7 +2,6 @@ package fr.lh.resultsmanager.controllers;
 
 import fr.lh.resultsmanager.dtos.request.CompetitionRequestDto;
 import fr.lh.resultsmanager.dtos.response.CompetitionResponseDto;
-import fr.lh.resultsmanager.dtos.response.LeagueResponseDto;
 import fr.lh.resultsmanager.mapper.CompetitionMapper;
 import fr.lh.resultsmanager.model.Competition;
 import fr.lh.resultsmanager.service.CompetitionService;
