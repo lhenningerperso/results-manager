@@ -32,7 +32,7 @@ jobs:
         run: ./mvnw -B clean verify
 
       - name: SonarQube analysis
-        if: github.actor != 'dependabot[bot]'
+        if: github.event_name != 'pull_request' || github.event.pull_request.user.login != 'dependabot[bot]'
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: ./mvnw -B org.sonarsource.scanner.maven:sonar-maven-plugin:5.7.0.6970:sonar
